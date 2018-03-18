@@ -2,7 +2,7 @@ package com.optimize.launcher;
 
 import android.app.Application;
 
-/**
+/*
  * Created by Ruibing.han on 2018/3/17.
  */
 
