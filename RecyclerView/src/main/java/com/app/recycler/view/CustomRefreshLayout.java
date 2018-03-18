@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.app.recycler.R;
 import com.app.recycler.util.ViewTool;
@@ -19,7 +20,7 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.PARAMETER;
 
-public abstract class MySwipeRefreshLayout extends SuperSwipeRefreshLayout implements MyRecyclerViewRefreshImpl {
+public abstract class CustomRefreshLayout extends FrameLayout implements CustomRefreshLayoutImpl {
     public static final int LOADING = 0;//主页面加载中页面
     public static final int SUCCESSFUL = 1;//主页面加载成功
     public static final int EMPTY_FAILURE = 2;//主页面加载失败或数据为空
@@ -30,8 +31,17 @@ public abstract class MySwipeRefreshLayout extends SuperSwipeRefreshLayout imple
     public static final int LOAD_MORE_FAILURE = 10;//加载更多失败
     public static final int LOAD_NO_MORE = 11;//没有更多数据了
 
-    private Context mContext;
-    private RecyclerView mRecyclerView;
+    protected Context mContext;
+
+    public CustomRefreshLayout(Context context) {
+        this(context, null);
+    }
+
+    public CustomRefreshLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mContext = context;
+        init();
+    }
 
     //自定义注解 实现页面切换
     @Documented
@@ -64,47 +74,37 @@ public abstract class MySwipeRefreshLayout extends SuperSwipeRefreshLayout imple
         void onLoadMore();//上拉加载更多
     }
 
-    public MySwipeRefreshLayout(Context context) {
-        this(context, null);
-    }
-
-    public MySwipeRefreshLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        mContext = context;
-        init();
-    }
-
     private void init() {
         //加载布局
         View loadingView = View.inflate(mContext, getLoadingLayoutId(), null);
-        addView(loadingView);
 
         //获取成功布局-内容布局（定死）
-        View successfulView = View.inflate(mContext, R.layout.layout_frag_recycler, null);
-        SuperSwipeRefreshLayout swipeRefresh = successfulView.findViewById(R.id.frag_swipeRefresh);
-        mRecyclerView = successfulView.findViewById(R.id.frag_recyclerView);
-        addView(successfulView);
-        initRefresh(swipeRefresh);//初始化刷新布局
+        View successfulView = View.inflate(mContext, getSuccessfulLayoutId(), null);
+        onInitSuccessfulLayout(successfulView);//初始化成功布局
 
         //获取失败或空数据布局
         View emptyFailureView = View.inflate(mContext, getEmptyFailureLayoutId(), null);
-        addView(emptyFailureView);
+        onInitEmptyFailureLayout(emptyFailureView);//初始化失败或空数据布局
 
         //默认都是隐藏的
-        ViewTool.setEnable(loadingView, false);
-        ViewTool.setEnable(successfulView, false);
-        ViewTool.setEnable(emptyFailureView, false);
+        ViewTool.setVisible(loadingView, false);
+        ViewTool.setVisible(successfulView, false);
+        ViewTool.setVisible(emptyFailureView, false);
 
+        //添加到容器中
+        addView(loadingView);
+        addView(successfulView);
+        addView(emptyFailureView);
     }
 
     //初始化刷新布局
-    private void initRefresh(SuperSwipeRefreshLayout swipeRefresh) {
+    protected void onInitSwipeRefreshLayout(SwipeRefreshLayout swipeRefresh) {
         swipeRefresh.setHeaderViewBackgroundColor(ContextCompat.getColor(mContext, R.color.white));//设置刷新头布局的背景颜色
         swipeRefresh.setHeaderView(getPullRefreshView());// 设置下拉刷新布局
         swipeRefresh.setFooterView(getLoadMoreView());//设置加载更多布局
         swipeRefresh.setTargetScrollWithLayout(true);
         //监听下拉刷新
-        swipeRefresh.setOnPullRefreshListener(new SuperSwipeRefreshLayout.OnPullRefreshListener() {
+        swipeRefresh.setOnPullRefreshListener(new SwipeRefreshLayout.OnPullRefreshListener() {
 
             //正在刷新（释放后的刷新。请求接口数据）
             @Override
@@ -128,7 +128,7 @@ public abstract class MySwipeRefreshLayout extends SuperSwipeRefreshLayout imple
         });
 
         //加载更多
-        swipeRefresh.setOnPushLoadMoreListener(new SuperSwipeRefreshLayout.OnPushLoadMoreListener() {
+        swipeRefresh.setOnPushLoadMoreListener(new SwipeRefreshLayout.OnPushLoadMoreListener() {
 
             @Override
             public void onLoadMore() {
@@ -219,10 +219,5 @@ public abstract class MySwipeRefreshLayout extends SuperSwipeRefreshLayout imple
                 onLoadNoMore();//加载更多成功 - 没有更多数据了
                 break;
         }
-    }
-
-    //获取列表RecyclerView
-    public RecyclerView getRecyclerView() {
-        return mRecyclerView;
     }
 }

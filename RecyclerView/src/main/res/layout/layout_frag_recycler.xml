@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.app.recycler.view.MySwipeRefreshLayout
+    <com.app.recycler.view.SwipeRefreshLayout
         android:id="@+id/frag_swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,5 +14,5 @@
             android:divider="@null"
             android:dividerHeight="10dp"
             android:scrollbars="none" />
-    </com.app.recycler.view.MySwipeRefreshLayout>
+    </com.app.recycler.view.SwipeRefreshLayout>
 </LinearLayout>

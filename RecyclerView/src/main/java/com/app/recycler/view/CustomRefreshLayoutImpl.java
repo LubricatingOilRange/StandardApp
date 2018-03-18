@@ -2,7 +2,7 @@ package com.app.recycler.view;
 
 import android.view.View;
 
-public interface MyRecyclerViewRefreshImpl {
+public interface CustomRefreshLayoutImpl {
 
     //---------------------------------------主页面的加载中布局-------------------------------------
 
@@ -12,9 +12,17 @@ public interface MyRecyclerViewRefreshImpl {
 
     void onCancelLoading();//取消加载中动画效果
 
+    //---------------------------------------主页面的成功布局-------------------------------------
+
+    int getSuccessfulLayoutId();//获取成功的布局ID
+
+    void onInitSuccessfulLayout(View successfulView);//初始化成功布局
+
     //--------------------------------主页面的加载失败或空数据布局布局------------------------------
 
     int getEmptyFailureLayoutId();//获取加载失败或空数据的布局ID
+
+    void onInitEmptyFailureLayout(View emptyFailureView);//初始化失败或空数据布局
 
     //-----------------------------------主页面的页面Type的逻辑处理---------------------------------
     void setFragViewVisible(boolean loadingVisible, boolean successfulVisible, boolean emptyFailureVisible);//加载中页面，成功页面，失败或空数据页面切换

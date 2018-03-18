@@ -1,17 +1,21 @@
 package com.app.recycler.view;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.app.recycler.R;
 
-public class RefreshView extends MySwipeRefreshLayout {
-    public RefreshView(Context context) {
+public class RefreshRecyclerView extends CustomRefreshLayout {
+    private RecyclerView mRecyclerView;
+    public RefreshRecyclerView(Context context) {
         super(context);
     }
 
-    public RefreshView(Context context, AttributeSet attrs) {
+    public RefreshRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -33,16 +37,38 @@ public class RefreshView extends MySwipeRefreshLayout {
 
     }
 
+    @Override
+    public int getSuccessfulLayoutId() {
+        return R.layout.layout_frag_recycler;//获取成功的布局ID
+    }
+
+    @Override
+    public void onInitSuccessfulLayout(View successfulView) {
+        SwipeRefreshLayout swipeRefresh = successfulView.findViewById(R.id.frag_swipeRefresh);
+        mRecyclerView = successfulView.findViewById(R.id.frag_recyclerView);
+        onInitSwipeRefreshLayout(swipeRefresh);//初始化刷新布局
+    }
+
     //获取加载失败或空数据的布局ID
     @Override
     public int getEmptyFailureLayoutId() {
         return R.layout.layout_empty_failure;
     }
 
+    ////初始化失败或空数据布局
+    @Override
+    public void onInitEmptyFailureLayout(View emptyFailureView) {
+        TextView tv_empty = emptyFailureView.findViewById(R.id.tv_empty);
+        tv_empty.setText("暂无数据");
+        ImageView iv_empty = emptyFailureView.findViewById(R.id.iv_empty);
+        iv_empty.setBackgroundResource(R.mipmap.ic_search);
+    }
+
     /**
      * 加载中页面，成功页面，失败或空数据页面切换
-     * @param loadingVisible 加载中页面
-     * @param successfulVisible 成功页面
+     *
+     * @param loadingVisible      加载中页面
+     * @param successfulVisible   成功页面
      * @param emptyFailureVisible 失败或空数据页面
      */
     @Override
@@ -138,5 +164,10 @@ public class RefreshView extends MySwipeRefreshLayout {
     @Override
     public void onLoadNoMore() {
 
+    }
+
+    //获取列表RecyclerView
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
     }
 }

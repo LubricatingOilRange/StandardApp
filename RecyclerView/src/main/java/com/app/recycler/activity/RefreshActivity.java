@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 import com.app.recycler.R;
-import com.app.recycler.view.MySwipeRefreshLayout;
-import com.app.recycler.view.RefreshView;
+import com.app.recycler.view.CustomRefreshLayout;
+import com.app.recycler.view.RefreshRecyclerView;
 
 public class RefreshActivity extends AppCompatActivity {
 
-    private RefreshView refreshView;
+    private RefreshRecyclerView refreshView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class RefreshActivity extends AppCompatActivity {
         RecyclerView recyclerView = refreshView.getRecyclerView();
         initRecyclerView(recyclerView);
 
-        refreshView.setOnRefreshCallBack(new MySwipeRefreshLayout.OnRefreshCallBack() {
+        refreshView.setOnRefreshCallBack(new CustomRefreshLayout.OnRefreshCallBack() {
             @Override
             public void onRefresh() {//下拉刷新
 
