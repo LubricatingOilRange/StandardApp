@@ -26,6 +26,7 @@
             android:textSize="18sp"
             android:gravity="center_horizontal"
             android:layout_margin="22dp"
-            android:textColor="#333333"/>
+            android:textColor="#333333"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </LinearLayout>
