@@ -1,1 +1,1 @@
-include ':app', ':OptimizeLauncher'
+include ':app', ':OptimizeLauncher', ':RecyclerView'
