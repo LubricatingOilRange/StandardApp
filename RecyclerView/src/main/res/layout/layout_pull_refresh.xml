@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content">
 
                 <ProgressBar
-                    android:id="@+id/pb_view"
+                    android:id="@+id/pb_refresh"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:indeterminateDrawable="@drawable/loading_rotate"
@@ -30,14 +30,14 @@
                     android:indeterminateBehavior="repeat"  />
 
                 <ImageView
-                    android:id="@+id/image_view"
+                    android:id="@+id/iv_refresh_arrow"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:contentDescription="@null" />
             </FrameLayout>
 
             <TextView
-                android:id="@+id/text_view"
+                android:id="@+id/tv_refresh_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -48,7 +48,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_update_time"
+            android:id="@+id/tv_refresh_update_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"

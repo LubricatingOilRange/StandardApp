@@ -32,6 +32,9 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
     public static final int LOAD_NO_MORE = 11;//没有更多数据了
 
     protected Context mContext;
+    protected View mLoadingView;
+    protected View mSuccessfulView;
+    protected View mEmptyFailureView;
 
     public CustomRefreshLayout(Context context) {
         this(context, null);
@@ -76,25 +79,26 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
 
     private void init() {
         //加载布局
-        View loadingView = View.inflate(mContext, getLoadingLayoutId(), null);
+        mLoadingView = View.inflate(mContext, getLoadingLayoutId(), null);
+        onInitLoadingLayout(mLoadingView);//初始化加载中布局
 
         //获取成功布局-内容布局（定死）
-        View successfulView = View.inflate(mContext, getSuccessfulLayoutId(), null);
-        onInitSuccessfulLayout(successfulView);//初始化成功布局
+        mSuccessfulView = View.inflate(mContext, getSuccessfulLayoutId(), null);
+        onInitSuccessfulLayout(mSuccessfulView);//初始化成功布局
 
         //获取失败或空数据布局
-        View emptyFailureView = View.inflate(mContext, getEmptyFailureLayoutId(), null);
-        onInitEmptyFailureLayout(emptyFailureView);//初始化失败或空数据布局
+        mEmptyFailureView = View.inflate(mContext, getEmptyFailureLayoutId(), null);
+        onInitEmptyFailureLayout(mEmptyFailureView);//初始化失败或空数据布局
 
         //默认都是隐藏的
-        ViewTool.setVisible(loadingView, false);
-        ViewTool.setVisible(successfulView, false);
-        ViewTool.setVisible(emptyFailureView, false);
+        ViewTool.setVisible(mLoadingView, false);
+        ViewTool.setVisible(mSuccessfulView, false);
+        ViewTool.setVisible(mEmptyFailureView, false);
 
         //添加到容器中
-        addView(loadingView);
-        addView(successfulView);
-        addView(emptyFailureView);
+        addView(mLoadingView);
+        addView(mSuccessfulView);
+        addView(mEmptyFailureView);
     }
 
     //初始化刷新布局
@@ -140,7 +144,7 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
 
             @Override
             public void onPushEnable(boolean half) {
-                onUpdateLoadMoreRelease(half);//上拉过半后，更新上拉加载(false)  -- 松开刷新(true)的切换
+                onUpdateLoadMoreRelease(half);//上拉过半后，更新上拉加载(false)  -- 松开加载(true)的切换
             }
 
             //上拉的距离
@@ -153,16 +157,16 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
 
     //获取下拉刷新布局
     private View getPullRefreshView() {
-        View pullRefreshView = LayoutInflater.from(mContext).inflate(getPullRefreshLayoutId(), null);
-        onInitPullRefreshView(pullRefreshView);//初始化下拉刷新
-        return pullRefreshView;
+        View pullRefreshLayout = getPullRefreshLayout();//获取下拉刷新布局
+        onInitPullRefreshView(pullRefreshLayout);//初始化下拉刷新
+        return pullRefreshLayout;
     }
 
-    // 获取加载更多布局
+
     private View getLoadMoreView() {
-        View loadMoreView = LayoutInflater.from(mContext).inflate(getLoadMoreLayoutId(), null);
-        onInitLoadMoreView(loadMoreView);
-        return loadMoreView;
+        View loadMoreLayout = getLoadMoreLayout();//获取加载更多布局
+        onInitLoadMoreView(loadMoreLayout);//初始化加载更多布局
+        return loadMoreLayout;
     }
 
     /**

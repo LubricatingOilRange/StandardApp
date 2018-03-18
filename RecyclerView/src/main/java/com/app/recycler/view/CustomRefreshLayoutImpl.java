@@ -8,6 +8,8 @@ public interface CustomRefreshLayoutImpl {
 
     int getLoadingLayoutId();//获取加载中的布局ID
 
+    void onInitLoadingLayout(View loadingView);//初始化加载中布局
+
     void onShowLoading();//展示加载中动画效果
 
     void onCancelLoading();//取消加载中动画效果
@@ -29,19 +31,19 @@ public interface CustomRefreshLayoutImpl {
 
     //----------------------------------------下载刷新布局------------------------------------------
 
-    int getPullRefreshLayoutId();//获取下拉刷新的布局ID
+    View getPullRefreshLayout();//获取下拉刷新的布局ID
 
     void onInitPullRefreshView(View pullRefreshView);//初始化下拉刷新布局
+
+    void onUpdatePullRefreshRelease(boolean half);//下拉过半后，更新下拉刷新(false)  -- 释放立即刷新(true)的切换
 
     void onUpdateOnRefreshingView();//初始化正在刷新布局
 
     void onPullRefreshDistance(int distance);//下拉刷新 下拉后距离顶部的距离
 
-    void onUpdatePullRefreshRelease(boolean half);//下拉过半后，更新下拉刷新(false)  -- 释放立即刷新(true)的切换
-
     //---------------------------------------上拉加载更多-------------------------------------------
 
-    int getLoadMoreLayoutId();//获取加载更多的布局ID
+    View getLoadMoreLayout();//获取加载更多的布局ID
 
     void onInitLoadMoreView(View loadMoreView);//初始化加载更多布局
 
@@ -49,7 +51,7 @@ public interface CustomRefreshLayoutImpl {
 
     void onLoadMoreDistance(int distance);//上拉加载更多 上拉后距离底部的距离
 
-    void onUpdateLoadMoreRelease(boolean half);//上拉过半后，更新上拉加载(false)  -- 松开刷新(true)的切换
+    void onUpdateLoadMoreRelease(boolean half);//上拉过半后，更新上拉加载(false)  -- 松开加载(true)的切换
 
     //-------------------------------下拉刷新和加载更多的页面Type的逻辑处理-------------------------
 

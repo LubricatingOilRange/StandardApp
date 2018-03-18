@@ -22,18 +22,12 @@ public class ViewTool {
     }
 
     //是否可见
-    public static void setINVisible(View view,boolean visible) {
+    public static void setINVisible(View view) {
         if (view == null) {
             return;
         }
-        if (visible) {
-            if (view.getVisibility() != View.VISIBLE) {
-                view.setVisibility(View.VISIBLE);
-            }
-        } else {
-            if (view.getVisibility() == View.VISIBLE) {
-                view.setVisibility(View.INVISIBLE);
-            }
+        if (view.getVisibility() != View.INVISIBLE) {
+            view.setVisibility(View.INVISIBLE);
         }
     }
 
