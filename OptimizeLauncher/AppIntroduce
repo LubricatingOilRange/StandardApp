@@ -1,0 +1,22 @@
+1,App启动的优化
+
+ Application:attachBaseContext()：65535调用 当dex文件过大时
+
+ Application:onCreate()，不要做耗时操作
+
+ SplashActivity.onCreate(),不要做耗时操作
+
+ 避免冷启动：
+ 冷启动（初始化Application）,
+ 暖启动（前台切换到后台），
+ 热启动（跳转到另外一个App，返回），
+
+ （1  SplashActivity - onBackPress - moveTaskToBack：作用是不再Finish到此Activity，仅仅是把它放到后台隐藏。
+ 类似于用户主动触发系统Home键的效果  ---- 暖启动
+
+ （2  SplashActivity - onResume - MainActivity：不需要延迟加载，直接在onResume方法进入主页
+
+ （3  SplashActivity - Style_Theme ：直接设置Background Window的背景，去除app启动出现白屏或黑屏，试下启动页的效果
+   <item name="android:windowIsTranslucent">false</item>
+   <item name="android:windowFullscreen" >true</item>
+   <item name="android:windowBackground">@mipmap/ic_app_launcher</item>
