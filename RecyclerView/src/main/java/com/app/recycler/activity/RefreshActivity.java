@@ -15,6 +15,7 @@ import com.app.recycler.adapter.StandardAdapter;
 import com.app.recycler.view.CustomItemDecoration;
 import com.app.recycler.view.CustomRefreshLayout;
 import com.app.recycler.view.RefreshRecyclerView;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.ArrayList;
@@ -131,7 +132,7 @@ public class RefreshActivity extends AppCompatActivity {
 
     private List<String> getData() {
         List<String> dataList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 50; i++) {
             dataList.add("山上有 " + (index + i) + "和尚");
         }
         index += dataList.size();

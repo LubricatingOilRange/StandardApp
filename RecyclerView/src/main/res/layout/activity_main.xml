@@ -39,4 +39,40 @@
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_item_anim"
+        android:layout_width="match_parent"
+        android:text="RecyclerView条目展示动画效果"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_suspend_decoration"
+        android:layout_width="match_parent"
+        android:text="RecyclerView实现顶部悬浮方式一:分割线"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_suspend_toolBar"
+        android:layout_width="match_parent"
+        android:text="RecyclerView实现顶部悬浮方式一:分割线"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

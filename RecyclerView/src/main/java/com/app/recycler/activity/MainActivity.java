@@ -36,6 +36,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //RecyclerView条目展示动画效果
+        findViewById(R.id.tv_item_anim).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AnimationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView实现顶部悬浮方式一:分割线
+        findViewById(R.id.tv_suspend_decoration).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RefreshActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView实现顶部悬浮方式一:分割线
+        findViewById(R.id.tv_suspend_toolBar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RefreshActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

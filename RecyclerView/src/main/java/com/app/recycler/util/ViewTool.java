@@ -21,7 +21,7 @@ public class ViewTool {
         }
     }
 
-    //是否可见
+    //设置不可见
     public static void setINVisible(View view) {
         if (view == null) {
             return;

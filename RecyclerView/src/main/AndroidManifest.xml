@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activity.MultiLevel2Activity" />
         <activity android:name=".activity.MultiLevel3Activity" />
-        <activity android:name=".activity.RefreshActivity"></activity>
+        <activity android:name=".activity.RefreshActivity" />
+        <activity android:name=".activity.AnimationActivity"></activity>
     </application>
 
 </manifest>

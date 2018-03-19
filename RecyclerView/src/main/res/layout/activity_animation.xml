@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        tools:ignore="RtlCompat,HardcodedText" >
+        <TextView
+            android:id="@+id/tv_alpha"
+            android:text="透明"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="@drawable/select_text_red_white"
+            android:background="#235809" />
+
+        <TextView
+            android:id="@+id/tv_Scale"
+            android:text="缩放"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="5dp"
+            android:textColor="@drawable/select_text_red_white"
+            android:background="#235809"/>
+
+        <TextView
+            android:id="@+id/tv_shake"
+            android:text="抖动(自定义)"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="5dp"
+            android:textColor="@drawable/select_text_red_white"
+            android:background="#235809"/>
+
+        <TextView
+            android:id="@+id/tv_slide_left"
+            android:text="条目左边弹出"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="5dp"
+            android:textColor="@drawable/select_text_red_white"
+            android:background="#235809"/>
+
+        <TextView
+            android:id="@+id/tv_slide_right"
+            android:text="条目右边边弹出"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="5dp"
+            android:textColor="@drawable/select_text_red_white"
+            android:background="#235809"/>
+
+        <TextView
+            android:id="@+id/tv_slide_bottom"
+            android:text="条目底部弹出"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="5dp"
+            android:textColor="@drawable/select_text_red_white"
+            android:background="#235809"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

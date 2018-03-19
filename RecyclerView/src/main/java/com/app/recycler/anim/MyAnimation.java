@@ -1,0 +1,21 @@
+package com.app.recycler.anim;
+
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.view.View;
+
+import com.chad.library.adapter.base.animation.BaseAnimation;
+
+/**
+ * Created by ruibing.han on 2018/3/19.
+ */
+
+public class MyAnimation implements BaseAnimation {
+    @Override
+    public Animator[] getAnimators(View view) {
+        return new Animator[]{
+                ObjectAnimator.ofFloat(view, "scaleY", 1, 3.0f, 1),
+                ObjectAnimator.ofFloat(view, "scaleX", 1, 3.0f, 1)
+        };
+    }
+}
