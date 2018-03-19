@@ -50,6 +50,7 @@ public class AnimationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
+        
         findViewById(R.id.tv_alpha).setOnClickListener(listener);
         findViewById(R.id.tv_Scale).setOnClickListener(listener);
         findViewById(R.id.tv_shake).setOnClickListener(listener);
