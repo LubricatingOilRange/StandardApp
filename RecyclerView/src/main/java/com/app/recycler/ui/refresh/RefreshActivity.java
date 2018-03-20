@@ -1,4 +1,4 @@
-package com.app.recycler.activity;
+package com.app.recycler.ui.refresh;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

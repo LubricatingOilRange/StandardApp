@@ -1,4 +1,4 @@
-package com.app.recycler.activity;
+package com.app.recycler.ui.multi_item;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

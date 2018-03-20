@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MultiLevel2Activity" />
-        <activity android:name=".activity.MultiLevel3Activity" />
-        <activity android:name=".activity.RefreshActivity" />
-        <activity android:name=".activity.AnimationActivity" />
-        <activity android:name=".activity.SuspendDecorationActivity" />
-        <activity android:name=".activity.SuspendToolBarActivity"></activity>
+        <activity android:name=".ui.multi_item.MultiLevel2Activity" />
+        <activity android:name=".ui.multi_item.MultiLevel3Activity" />
+        <activity android:name=".ui.refresh.RefreshActivity" />
+        <activity android:name=".ui.anim.AnimationActivity" />
+        <activity android:name=".ui.decoration.SuspendDecorationActivity" />
+        <activity android:name=".ui.decoration.SuspendToolBarActivity"></activity>
     </application>
 
 </manifest>

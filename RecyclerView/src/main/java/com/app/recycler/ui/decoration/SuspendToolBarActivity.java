@@ -1,4 +1,4 @@
-package com.app.recycler.activity;
+package com.app.recycler.ui.decoration;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

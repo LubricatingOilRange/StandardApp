@@ -1,4 +1,4 @@
-package com.app.recycler.activity;
+package com.app.recycler.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.app.recycler.R;
+import com.app.recycler.ui.anim.AnimationActivity;
+import com.app.recycler.ui.multi_item.MultiLevel2Activity;
+import com.app.recycler.ui.multi_item.MultiLevel3Activity;
+import com.app.recycler.ui.refresh.RefreshActivity;
+import com.app.recycler.ui.decoration.SuspendDecorationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
