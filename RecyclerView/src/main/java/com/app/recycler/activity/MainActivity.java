@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_suspend_decoration).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RefreshActivity.class);
+                Intent intent = new Intent(MainActivity.this, SuspendDecorationActivity.class);
                 startActivity(intent);
             }
         });

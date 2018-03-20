@@ -10,8 +10,7 @@ import android.view.View;
 import com.app.recycler.R;
 import com.app.recycler.adapter.StandardAdapter;
 import com.app.recycler.anim.MyAnimation;
-import com.app.recycler.view.CustomItemDecoration;
-import com.app.recycler.view.CustomRefreshLayout;
+import com.app.recycler.view.decoration.DrawableItemDecoration;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
@@ -50,7 +49,7 @@ public class AnimationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
-        
+
         findViewById(R.id.tv_alpha).setOnClickListener(listener);
         findViewById(R.id.tv_Scale).setOnClickListener(listener);
         findViewById(R.id.tv_shake).setOnClickListener(listener);
@@ -73,7 +72,7 @@ public class AnimationActivity extends AppCompatActivity {
         };
         adapter.setNotDoAnimationCount(3);//设置当数据小于3时不展示动画效果
         adapter.isFirstOnly(false);
-        CustomItemDecoration itemDecoration = new CustomItemDecoration(this, CustomItemDecoration.VERTICAL);
+        DrawableItemDecoration itemDecoration = new DrawableItemDecoration(this, DrawableItemDecoration.VERTICAL);
         itemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.shape_line_dp2));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(itemDecoration);//添加分割线

@@ -19,7 +19,9 @@
         <activity android:name=".activity.MultiLevel2Activity" />
         <activity android:name=".activity.MultiLevel3Activity" />
         <activity android:name=".activity.RefreshActivity" />
-        <activity android:name=".activity.AnimationActivity"></activity>
+        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.SuspendDecorationActivity" />
+        <activity android:name=".activity.SuspendToolBarActivity"></activity>
     </application>
 
 </manifest>

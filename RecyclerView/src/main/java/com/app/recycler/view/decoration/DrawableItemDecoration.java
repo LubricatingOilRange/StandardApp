@@ -1,4 +1,4 @@
-package com.app.recycler.view;/*
+package com.app.recycler.view.decoration;/*
  * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 //RecyclerView的分割线
-public class CustomItemDecoration extends RecyclerView.ItemDecoration {
+public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
     public static final int HORIZONTAL = LinearLayout.HORIZONTAL;
     public static final int VERTICAL = LinearLayout.VERTICAL;
 
@@ -42,7 +42,7 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
 
     private final Rect mBounds = new Rect();
 
-    public CustomItemDecoration(Context context, int orientation) {
+    public DrawableItemDecoration(Context context, int orientation) {
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         a.recycle();
@@ -69,9 +69,6 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
      * @param drawable Drawable that should be used as a divider.
      */
     public void setDrawable(@NonNull Drawable drawable) {
-        if (drawable == null) {
-            throw new IllegalArgumentException("Drawable cannot be null.");
-        }
         mDivider = drawable;
     }
 
@@ -119,6 +116,7 @@ public class CustomItemDecoration extends RecyclerView.ItemDecoration {
         canvas.save();
         final int top;
         final int bottom;
+        //获取recyclerView的clipToPadding属性，绘制是否越过padding值
         if (parent.getClipToPadding()) {
             top = parent.getPaddingTop();
             bottom = parent.getHeight() - parent.getPaddingBottom();

@@ -1,0 +1,12 @@
+1 , 一级条目（StandardAdapter）
+    根据BaseRecyclerViewAdapterHelper中的BaseQuickAdapter<T,BaseViewHolder>进行修改
+
+2 ，二或三级条目（StandardMultiTwoAdapter，StandardMultiThreeAdapter）
+    自定义StandardMultiTwoAdapter继承BaseQuickAdapter<T,BaseViewHolder>，addItemType设置条目层次，重新convert方法进行处理
+
+3 ，RecyclerView下拉刷新和加载更多
+
+4 ，RecyclerView实现顶部悬浮
+    （1 通过自定义自定义ItemDecoration实现
+
+    （2 通过Meterial Design中的ToolBar实现
