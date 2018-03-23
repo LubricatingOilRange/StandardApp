@@ -11,6 +11,7 @@
         android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="RtlCompat"/>
+        tools:ignore="RtlCompat"
+        android:overScrollMode="never"/>
 
 </LinearLayout>

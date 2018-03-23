@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.app.recycler.R;
 import com.app.recycler.ui.anim.AnimationActivity;
+import com.app.recycler.ui.decoration.ScrollHeaderActivity;
+import com.app.recycler.ui.decoration.SuspendToolBarActivity;
 import com.app.recycler.ui.multi_item.MultiLevel2Activity;
 import com.app.recycler.ui.multi_item.MultiLevel3Activity;
 import com.app.recycler.ui.refresh.RefreshActivity;
@@ -60,11 +62,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //RecyclerView实现顶部悬浮方式一:分割线
+        //RecyclerView实现顶部悬浮方式一:HeaderView
+        findViewById(R.id.tv_suspend_head).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ScrollHeaderActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView实现顶部悬浮方式一:ToolBar(design)
         findViewById(R.id.tv_suspend_toolBar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RefreshActivity.class);
+                Intent intent = new Intent(MainActivity.this, SuspendToolBarActivity.class);
                 startActivity(intent);
             }
         });

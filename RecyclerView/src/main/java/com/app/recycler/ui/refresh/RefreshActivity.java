@@ -104,8 +104,6 @@ public class RefreshActivity extends AppCompatActivity {
                 }
             }
         });
-
-        initRefreshView();
     }
 
     private StandardAdapter<String> adapter;
@@ -136,9 +134,5 @@ public class RefreshActivity extends AppCompatActivity {
         }
         index += dataList.size();
         return dataList;
-    }
-
-    private void initRefreshView() {
-
     }
 }

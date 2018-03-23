@@ -65,9 +65,20 @@
         tools:ignore="HardcodedText" />
 
     <TextView
+        android:id="@+id/tv_suspend_head"
+        android:layout_width="match_parent"
+        android:text="RecyclerView实现顶部悬浮方式二:HeaderView滑动"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
+    <TextView
         android:id="@+id/tv_suspend_toolBar"
         android:layout_width="match_parent"
-        android:text="RecyclerView实现顶部悬浮方式一:分割线"
+        android:text="RecyclerView实现顶部悬浮方式三:ToolBar"
         android:gravity="center"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"

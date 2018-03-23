@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.ColorInt;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -16,13 +15,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * Created by gavin
- * Created date 17/7/1
- * Created log  BaseDecoration
- */
-
-public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
+public class SuspendItemDecoration extends RecyclerView.ItemDecoration {
     @ColorInt
     private int mGroupTextColor = Color.WHITE;//字体颜色，默认黑色
     private int mSideMargin = 10;   //边距 左边距
@@ -160,7 +153,7 @@ public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
                 if (position + 1 < itemCount) {
                     //下一组的第一个View接近头部
                     int viewBottom = childView.getBottom();
-                    if (isLastLineInGroup(parent, position) && viewBottom < bottom) {
+                    if (isLastLineInGroup(position) && viewBottom < bottom) {
                         bottom = viewBottom;
                     }
                 }
@@ -169,11 +162,11 @@ public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
     }
+
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         int pos = parent.getChildAdapterPosition(view);
-        RecyclerView.LayoutManager manager = parent.getLayoutManager();
         //只有是同一组的第一个才显示悬浮栏
         if (isFirstInGroup(pos)) {
             //为悬浮view预留空间
@@ -183,6 +176,7 @@ public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
             outRect.top = mDivideHeight;
         }
     }
+
     /**
      * 判断是不是组中的第一个位置
      * 根据前一个组名，判断当前是否为新的组
@@ -198,6 +192,7 @@ public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
         String curGroupId = getGroupName(position);
         return !TextUtils.equals(preGroupId, curGroupId);
     }
+
     /**
      * 得到当前分组第一个item的position
      */
@@ -232,7 +227,7 @@ public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
     /**
      * 判断自己是否为group的最后一行
      */
-    private boolean isLastLineInGroup(RecyclerView recyclerView, int position) {
+    private boolean isLastLineInGroup(int position) {
         String curGroupName = getGroupName(position);
         String nextGroupName;
         //默认往下查找的数量
@@ -242,10 +237,7 @@ public  class SuspendItemDecoration extends RecyclerView.ItemDecoration {
         } catch (Exception e) {
             nextGroupName = curGroupName;
         }
-        if (nextGroupName == null) {
-            return false;
-        }
-        return !TextUtils.equals(curGroupName, nextGroupName);
+        return nextGroupName != null && !TextUtils.equals(curGroupName, nextGroupName);
     }
 
     /**
