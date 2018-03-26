@@ -1,0 +1,21 @@
+package com.net.work.modle.dagger.component;
+
+import android.app.Service;
+
+import com.net.work.app.MyApplication;
+import com.net.work.modle.dagger.module.AppModule;
+import com.net.work.modle.dagger.module.HttpModule;
+import com.net.work.modle.helper.ServiceHelper;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+@Singleton
+@Component(modules = {AppModule.class, HttpModule.class})
+public interface AppComponent {
+
+    MyApplication getContent();
+
+    ServiceHelper getServiceHelper();
+}
