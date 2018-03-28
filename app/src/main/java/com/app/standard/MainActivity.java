@@ -1,4 +1,4 @@
-package com.app.standard.ui;
+package com.app.standard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
