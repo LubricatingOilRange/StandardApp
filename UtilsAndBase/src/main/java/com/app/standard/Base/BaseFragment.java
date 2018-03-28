@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.app.standard.impl.FragmentImpl;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-
-public abstract class BaseFragment<A extends Activity> extends Fragment {
+//无MVP的Fragment基类
+public abstract class BaseFragment<A extends Activity> extends Fragment implements FragmentImpl {
 
     protected A mActivity;
     private Unbinder mUnBinder;
@@ -26,7 +28,7 @@ public abstract class BaseFragment<A extends Activity> extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), null);
+        View view = inflater.inflate(getLayoutId(), null);//获取布局Id
         mUnBinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -34,13 +36,13 @@ public abstract class BaseFragment<A extends Activity> extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        onViewCreatedInit();
+        onViewCreatedInit();//在onViewCreated方法中可进行布局的初始化操作
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        onStartInit();
+        onStartInit();//在onStart方法中可进行网络请求操作
     }
 
     @Override
@@ -48,10 +50,4 @@ public abstract class BaseFragment<A extends Activity> extends Fragment {
         super.onDestroyView();
         mUnBinder.unbind();
     }
-
-    protected abstract int getLayoutId();//获取布局Id
-
-    protected abstract void onViewCreatedInit();//在onViewCreated方法中可进行布局的初始化操作
-
-    protected abstract void onStartInit();//在onStart方法中可进行网络请求操作
 }

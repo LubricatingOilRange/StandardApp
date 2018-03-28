@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0079bf"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_apple"
+        android:text="大苹果"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
