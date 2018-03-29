@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.app.standard.R;
 import com.app.standard.app.AppViewHolder;
+import com.app.standard.app.MyApplication;
 import com.app.standard.modle.window.dialog.CommonDialog;
 import com.app.standard.modle.window.dialog.CommonDialogFragment;
 import com.app.standard.ui.view.custom.CustomToast;
@@ -64,8 +65,9 @@ public class DialogHelper {
             commonDialog = new CommonDialog.Builder(context)
                     .setBackGroundLevel(1f)//背景透明（0-1）
                     //.setWidthAndHeight(ScreenUtil.getScreenWidth(context) * 2 / 3, ScreenUtil.getScreenHeight(context) / 3)//dialog的宽高
-                    .setWidthAndHeight(0, 0)//dialog的宽高
-                    //.setXAndY(-100, 300)//设置dialog坐标点(基于Gravity之后的偏移量，默认为中心点)
+                    .setWidthAndHeight(MyApplication.SCREEN_WIDTH * 2 / 3, MyApplication.SCREEN_HEIGHT / 3)//dialog的宽高
+//                    .setWidthAndHeight(0, 0)//dialog的宽高
+                    .setXAndY(-100, 300)//设置dialog坐标点(基于Gravity之后的偏移量，默认为中心点)
                     .setXAndY(0, 0)//设置dialog坐标点(基于Gravity之后的偏移量，默认为中心点)
                     .setOutsideTouchable(true)//设置dialog外部点击是否消失
                     //.setAnimationStyle(R.style.anim_dialog)//设置dialog显示消失动画

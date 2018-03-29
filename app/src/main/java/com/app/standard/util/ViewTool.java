@@ -129,6 +129,6 @@ public class ViewTool {
         int mWidth = view.getMeasuredWidth();
         //得到测量高度
         int mHeight = view.getMeasuredHeight();
-        LogUtil.i("aaa", "mWidth:" + mWidth + "/mHeight:" + mHeight);
+        LogUtil.i("a", "mWidth:" + mWidth + "/mHeight:" + mHeight);
     }
 }

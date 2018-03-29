@@ -1,22 +1,22 @@
 package com.app.standard.ui.activity.main;
 
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.app.standard.R;
 import com.app.standard.base.activity.BaseMvpActivity;
-import com.app.standard.modle.http.exception.AppException;
 import com.app.standard.modle.helper.DialogHelper;
+import com.app.standard.modle.helper.PopupWindowHelper;
+import com.app.standard.modle.http.exception.AppException;
+import com.app.standard.modle.rxjava.RxBus;
 import com.app.standard.modle.window.dialog.CommonDialog;
-import com.app.standard.modle.window.dialog.CommonDialogFragment;
+import com.app.standard.modle.window.popup.CommonPopupWindow;
 import com.app.standard.ui.view.custom.CustomToast;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
-
-    private CommonDialog mCommonDialog;
-
-    int dataType;
 
     @Override
     public int getLayoutId() {
@@ -28,22 +28,14 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
         getActivityComponent().inject(this);
     }
 
-    @OnClick({R.id.tv_getData,R.id.tv_send})
+    @OnClick({R.id.tv_getData, R.id.tv_send})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_getData://RxJava 获取网络数据
-//                mPresenter.getData();
-//                RxBus.getDefault().post(true);
-
-//                DialogHelper.showDialog(new String[]{"是否获取获取网络数据","取消","确认"},getSupportFragmentManager());
-                DialogHelper.showDialog(MainActivity.this,new String[]{"是否获取获取网络数据" + dataType,"取消","确认"},mCommonDialog);
-                dataType++;
+                mPresenter.getData();
                 break;
             case R.id.tv_send://RxBus 发送消息
-//                RxBus.getDefault().post("我是MainActivity");
-
-                DialogHelper.showDialogFragment(new String[]{"是否发送消息","取消","确认"},getSupportFragmentManager());
-
+                RxBus.getDefault().post("我是MainActivity");
                 break;
         }
     }

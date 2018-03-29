@@ -10,8 +10,6 @@ import com.app.standard.base.impl.ApplicationImpl;
 
 public abstract class BaseApplication extends Application implements ApplicationImpl {
 
-
-
     public static int SCREEN_WIDTH = -1;//屏幕的宽
     public static int SCREEN_HEIGHT = -1;//屏幕的高
     public static float DIMEN_RATE = -1.0F;// 常见取值 1.0 ， 1.5
@@ -21,7 +19,7 @@ public abstract class BaseApplication extends Application implements Application
     public void onCreate() {
         super.onCreate();
 
-        getScreenSize();
+        getScreenSize();//获取屏幕信息
 
         onCreateInit();// 在onCreate方法中进行其他的初始化操作，如数据库，更改时区(需要在主线程执行的初始化)
 
