@@ -54,6 +54,5 @@ dependencies {
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
 
-
     implementation "com.google.code.gson:gson:2.8.0"//gson
 }
