@@ -4,12 +4,9 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import com.app.standard.R;
-import com.app.standard.app.MyApplication;
 import com.app.standard.base.activity.BaseActivity;
-import com.app.standard.modle.helper.RetrofitHelper;
 import com.app.standard.modle.rxjava.RxBus;
 import com.app.standard.ui.activity.main.MainActivity;
-import com.app.standard.ui.view.custom.CustomToast;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -28,6 +25,7 @@ public class LoginActivity extends BaseActivity {
     void onClick(TextView textView) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
+
     }
 
     @Override

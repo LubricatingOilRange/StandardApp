@@ -27,6 +27,12 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreateInit() {
         instance = this;
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     //获取全局的上下文

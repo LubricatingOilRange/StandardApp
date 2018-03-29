@@ -10,6 +10,7 @@ import java.util.Map;
 
 import io.reactivex.Flowable;
 
+//网络请求
 public interface RetrofitImpl {
 
     Flowable<BaseResponse<String>> login(@NonNull Map<String, String> map);//登录

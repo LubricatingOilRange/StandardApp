@@ -1,0 +1,1 @@
+在RecyclerView布局中添加 android:overScrollMode="never"

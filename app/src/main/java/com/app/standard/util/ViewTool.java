@@ -103,7 +103,7 @@ public class ViewTool {
     /**
      * 测量view
      */
-    public static void measureView(View view) {
+    private static void measureView(View view) {
         ViewGroup.LayoutParams p = view.getLayoutParams();
         if (p == null) {
             p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -118,5 +118,17 @@ public class ViewTool {
             childHeightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         }
         view.measure(childWidthSpec, childHeightSpec);
+    }
+
+    public static void measureWidthAndHeight(View view) {
+        //设置测量模式为UNSPECIFIED可以确保测量不受父View的影响
+        int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(w, h);
+        //得到测量宽度
+        int mWidth = view.getMeasuredWidth();
+        //得到测量高度
+        int mHeight = view.getMeasuredHeight();
+        LogUtil.i("aaa", "mWidth:" + mWidth + "/mHeight:" + mHeight);
     }
 }

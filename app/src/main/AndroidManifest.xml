@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.login.LoginActivity">
+        <!--引导页面-->
+        <activity android:name=".ui.activity.WelcomeActivity"
+            android:theme="@style/welcomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +23,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.main.MainActivity"/>
+        <!--登陆页面-->
+        <activity android:name=".ui.activity.login.LoginActivity"
+            android:label="登陆页面"/>
+
+        <!--主页面-->
+        <activity android:name=".ui.activity.main.MainActivity"
+            android:label="主页面"/>
+
     </application>
 
 </manifest>
