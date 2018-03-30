@@ -1,18 +1,23 @@
 package com.app.standard.ui.activity.login;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.widget.TextView;
 
 import com.app.standard.R;
 import com.app.standard.base.activity.BaseActivity;
+import com.app.standard.base.activity.BaseDaggerActivity;
+import com.app.standard.modle.dagger2.component.DaggerActivityComponent;
+import com.app.standard.modle.dagger2.module.ActivityModule;
 import com.app.standard.modle.rxjava.RxBus;
 import com.app.standard.ui.activity.main.MainActivity;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.functions.Consumer;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseDaggerActivity {
 
     @BindView(R.id.tv_accept_message)
     TextView tv_accept_message;
@@ -27,9 +32,13 @@ public class LoginActivity extends BaseActivity {
         startActivity(intent);
 
     }
+    @Override
+    protected void onActivityInject() {
+        getActivityComponent().inject(this);
+    }
 
     @Override
-    public void onCreateInit() {
+    protected void onInitPageAndData() {
 
         RxBus.getDefault().toDefaultFlowAble(Object.class, new Consumer<Object>() {
             @Override

@@ -3,11 +3,10 @@ package com.app.standard.modle.dagger2.module;
 //  Created by ruibing.han on 2018/3/29.
 
 import com.app.standard.app.MyApplication;
-import com.app.standard.base.impl.RetrofitImpl;
-import com.app.standard.modle.helper.ExceptionHelper;
 import com.app.standard.modle.helper.RetrofitHelper;
 import com.app.standard.modle.http.api.AppService;
 import com.app.standard.modle.http.api.SubService;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Singleton;
 
@@ -33,6 +32,6 @@ public class AppModule {
     @Singleton
     @Provides
     RetrofitHelper provideRetrofitHelper(AppService appService, SubService subService) {
-        return new RetrofitHelper(appService,subService);
+        return new RetrofitHelper(appService, subService);
     }
 }

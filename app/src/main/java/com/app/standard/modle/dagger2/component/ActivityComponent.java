@@ -6,7 +6,9 @@ import android.app.Activity;
 
 import com.app.standard.modle.dagger2.module.ActivityModule;
 import com.app.standard.modle.dagger2.scope.ActivityScope;
+import com.app.standard.ui.activity.login.LoginActivity;
 import com.app.standard.ui.activity.main.MainActivity;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import dagger.Component;
 
@@ -15,6 +17,10 @@ import dagger.Component;
 public interface ActivityComponent {
 
     Activity getActivity();
+
+    RxPermissions getRxPermissions();//动态权限
+
+    void inject(LoginActivity loginActivity);
 
     void inject(MainActivity mainActivity);
 

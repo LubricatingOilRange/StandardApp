@@ -6,24 +6,27 @@ package com.app.standard.base.fragment;
 import com.app.standard.app.MyApplication;
 import com.app.standard.base.mvp.BasePresenter;
 import com.app.standard.base.mvp.BaseView;
-import com.app.standard.modle.dagger2.component.ActivityComponent;
-import com.app.standard.modle.dagger2.component.DaggerActivityComponent;
 import com.app.standard.modle.dagger2.component.DaggerFragmentComponent;
 import com.app.standard.modle.dagger2.component.FragmentComponent;
 import com.app.standard.modle.dagger2.module.FragmentModule;
 
 import javax.inject.Inject;
 
-public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseFragment implements BaseView{
+public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseFragment implements BaseView {
 
     @Inject
     T mPresenter;
 
-    protected FragmentComponent getActivityComponent() {
-        return DaggerFragmentComponent.builder()
-                .fragmentModule(new FragmentModule(this))
-                .appComponent(MyApplication.getAppComponent())
-                .build();
+    private FragmentComponent mFragmentComponent;
+
+    protected FragmentComponent getFragmentComponent() {
+        if (mFragmentComponent == null) {
+            mFragmentComponent = DaggerFragmentComponent.builder()
+                    .fragmentModule(new FragmentModule(this))
+                    .appComponent(MyApplication.getAppComponent())
+                    .build();
+        }
+        return mFragmentComponent;
     }
 
     @Override
@@ -34,6 +37,7 @@ public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseFragm
         }
         onInitPagAndData();
     }
+
     @Override
     public void onDestroyView() {
         if (mPresenter != null) {

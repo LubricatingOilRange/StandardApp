@@ -6,6 +6,7 @@ import android.app.Activity;
 
 import com.app.standard.modle.dagger2.module.FragmentModule;
 import com.app.standard.modle.dagger2.scope.FragmentScope;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import dagger.Component;
 
@@ -14,4 +15,6 @@ import dagger.Component;
 public interface FragmentComponent {
 
     Activity getActivity();
+
+    RxPermissions getRxPermissions();//动态权限
 }
