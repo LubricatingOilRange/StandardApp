@@ -4,7 +4,6 @@ package com.app.standard.base.fragment;
 //  Created by ruibing.han on 2018/3/29.
 
 import com.app.standard.app.MyApplication;
-import com.app.standard.base.activity.BaseDaggerActivity;
 import com.app.standard.base.mvp.BasePresenter;
 import com.app.standard.base.mvp.BaseView;
 import com.app.standard.modle.dagger2.component.DaggerFragmentComponent;

@@ -1,6 +1,5 @@
 package com.app.standard.base.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.app.standard.base.impl.ActivityImpl;
-import com.app.standard.modle.helper.PermissionsHelper;
-import com.app.standard.util.LogUtil;
-import com.tbruyelle.rxpermissions2.Permission;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.functions.Consumer;
 
 //无MVP的Activity基类
 public abstract class BaseActivity extends AppCompatActivity implements ActivityImpl {
@@ -31,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
         mUnBind = ButterKnife.bind(this);
         onCreateInit();//在onCreate方法初始化页面
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

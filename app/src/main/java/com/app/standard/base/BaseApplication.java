@@ -34,7 +34,7 @@ public abstract class BaseApplication extends Application implements Application
      * 初始化屏幕的宽高信息
      */
     private void getScreenSize() {
-        WindowManager windowManager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         if (windowManager != null) {
             DisplayMetrics dm = new DisplayMetrics();
             Display display = windowManager.getDefaultDisplay();

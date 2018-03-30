@@ -1,4 +1,4 @@
-package com.app.standard.base.activity;
+package com.app.standard.base.activity.input;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -24,7 +24,7 @@ public abstract class BaseInputFragmentActivity extends BaseInputActivity implem
     /**
      * 通过Replace将Fragment添加容器中 模拟栈 实现回退效果
      *
-     * @param replaceFragTag       （切换到哪个fragment的tag）
+     * @param replaceFragTag （切换到哪个fragment的tag）
      * @param isAddBackStack (是否添加到回退栈)
      * @param isShowAnim     (是否展示动画效果)
      * @param isBackLeft     (是否往左进栈)
@@ -78,7 +78,8 @@ public abstract class BaseInputFragmentActivity extends BaseInputActivity implem
                 popBackStack(tag, flags);
             }
         } else if (TextUtils.isEmpty(tag) && flags == 1) {//清栈了（释放栈中的Fragment）
-            finish();;//一般用来退出当前页面
+            finish();
+            ;//一般用来退出当前页面
         } else if (!TextUtils.isEmpty(tag) && flags == 0) {//返回到指定的页面,弹出当前fragment(不包括本身)栈上面的fragment
             if (isSkipBackStack) {
                 popBackStack(tag, flags);
@@ -111,7 +112,7 @@ public abstract class BaseInputFragmentActivity extends BaseInputActivity implem
     public void addFirstFragment(@NonNull String nextFragTag) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(getContainerViewId(), getNextFragment(nextFragTag),nextFragTag)
+                .add(getContainerViewId(), getNextFragment(nextFragTag), nextFragTag)
                 .commitAllowingStateLoss();
     }
 

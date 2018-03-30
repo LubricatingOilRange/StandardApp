@@ -6,7 +6,6 @@ import com.app.standard.app.MyApplication;
 import com.app.standard.modle.helper.RetrofitHelper;
 import com.app.standard.modle.http.api.AppService;
 import com.app.standard.modle.http.api.SubService;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Singleton;
 

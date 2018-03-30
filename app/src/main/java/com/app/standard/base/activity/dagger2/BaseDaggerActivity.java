@@ -1,8 +1,9 @@
-package com.app.standard.base.activity;
+package com.app.standard.base.activity.dagger2;
 
 //  Created by ruibing.han on 2018/3/30.
 
 import com.app.standard.app.MyApplication;
+import com.app.standard.base.activity.BaseActivity;
 import com.app.standard.modle.dagger2.component.ActivityComponent;
 import com.app.standard.modle.dagger2.component.DaggerActivityComponent;
 import com.app.standard.modle.dagger2.module.ActivityModule;
@@ -11,9 +12,9 @@ public abstract class BaseDaggerActivity extends BaseActivity {
 
     private ActivityComponent mActivityComponent;
 
-    protected ActivityComponent getActivityComponent() {
+    public ActivityComponent getActivityComponent() {
         if (mActivityComponent == null) {
-            mActivityComponent =  DaggerActivityComponent.builder()
+            mActivityComponent = DaggerActivityComponent.builder()
                     .appComponent(MyApplication.getAppComponent())
                     .activityModule(new ActivityModule(this))
                     .build();

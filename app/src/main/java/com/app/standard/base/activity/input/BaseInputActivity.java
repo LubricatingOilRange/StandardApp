@@ -1,4 +1,4 @@
-package com.app.standard.base.activity;
+package com.app.standard.base.activity.input;
 
 //  Created by ruibing.han on 2018/3/29.
 
@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import com.app.standard.base.activity.BaseActivity;
 
 /**
  * 当页面有EditText时 实现点击EditText外面后先进行隐藏软键盘效果

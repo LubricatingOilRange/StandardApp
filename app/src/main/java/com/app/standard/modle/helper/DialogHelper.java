@@ -3,7 +3,6 @@ package com.app.standard.modle.helper;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.View;
@@ -62,7 +61,7 @@ public class DialogHelper {
 
     //-----------------------------------------Dialog的使用-----------------------------------------
     //多次相同弹框，只跟页面内容
-    public static void showDialog(final Context context, final String[] arrayData, CommonDialog commonDialog) {
+    public static CommonDialog showDialog(final Context context, final String[] arrayData, CommonDialog commonDialog) {
         if (commonDialog == null) {
             commonDialog = new CommonDialog.Builder(context)
                     .setBackGroundLevel(1f)//背景透明（0-1）
@@ -93,5 +92,6 @@ public class DialogHelper {
 
         commonDialog.show();
 
+        return commonDialog;
     }
 }

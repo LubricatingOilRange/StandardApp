@@ -16,7 +16,7 @@ public class MyApplication extends BaseApplication {
 
     public static AppComponent getAppComponent() {
         if (mAppComponent == null) {
-            mAppComponent =  DaggerAppComponent.builder()
+            mAppComponent = DaggerAppComponent.builder()
                     .appModule(new AppModule(getInstance()))
                     .httpModule(new HttpModule())
                     .build();
@@ -55,6 +55,6 @@ public class MyApplication extends BaseApplication {
     //耗时初始化
     @Override
     public void onInitIntentService() {
-
+        //AppIntentService.initService(getInstance());
     }
 }

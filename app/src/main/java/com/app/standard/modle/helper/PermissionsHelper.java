@@ -4,6 +4,16 @@ package com.app.standard.modle.helper;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
+
+import com.app.standard.base.activity.dagger2.BaseDaggerActivity;
+import com.app.standard.component.callback.PermissionCallBack;
+import com.app.standard.util.LogUtil;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 public class PermissionsHelper {
     //危险权限组 -- 动态申请（API > 22）
@@ -45,4 +55,27 @@ public class PermissionsHelper {
     @SuppressLint("InlinedApi")
     public static final String PERMISSION_GROUP_SMS = Manifest.permission.READ_SMS;//短信相关权限组(用于与用户SMS消息相关的运行时权限)
 
+
+    public static Disposable applyPermission(BaseDaggerActivity daggerActivity, @NonNull final PermissionCallBack callBack) {
+        RxPermissions rxPermissions = daggerActivity.getActivityComponent().getRxPermissions();
+        return rxPermissions
+                .requestEach(PermissionsHelper.PERMISSION_GROUP_CAMERA)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {//已经申请过该权限 或 用户点击了统一改权限
+                            callBack.onApplySuccessful();//申请成功
+                            LogUtil.i("permission", permission.name + " is granted.");
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            callBack.onApplyFailure();//申请失败
+                            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+                            LogUtil.i("permission", permission.name + " is denied. More info should be provided.");
+                        } else {
+                            callBack.onApplyFailure();//申请失败
+                            // 用户拒绝了该权限，并且选中『不再询问』
+                            LogUtil.i("permission", permission.name + " is denied.");
+                        }
+                    }
+                });
+    }
 }

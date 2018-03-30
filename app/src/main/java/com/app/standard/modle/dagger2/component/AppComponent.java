@@ -5,7 +5,6 @@ package com.app.standard.modle.dagger2.component;
 import com.app.standard.app.MyApplication;
 import com.app.standard.modle.dagger2.module.AppModule;
 import com.app.standard.modle.dagger2.module.HttpModule;
-import com.app.standard.modle.helper.ExceptionHelper;
 import com.app.standard.modle.helper.RetrofitHelper;
 
 import javax.inject.Singleton;

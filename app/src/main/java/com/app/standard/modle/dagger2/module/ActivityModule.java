@@ -4,7 +4,6 @@ package com.app.standard.modle.dagger2.module;
 
 import android.app.Activity;
 
-import com.app.standard.app.MyApplication;
 import com.app.standard.modle.dagger2.scope.ActivityScope;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -29,7 +28,7 @@ public class ActivityModule {
     //Activity动态权限申请
     @ActivityScope
     @Provides
-    RxPermissions provideRxPermissions( Activity activity) {
+    RxPermissions provideRxPermissions(Activity activity) {
         return new RxPermissions(activity);
     }
 }

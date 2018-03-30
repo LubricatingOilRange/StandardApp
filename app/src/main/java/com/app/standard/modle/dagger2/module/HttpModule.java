@@ -44,8 +44,8 @@ public class HttpModule {
     @Singleton
     @AppUrl
     @Provides
-    Retrofit provideAppRetrofit(Retrofit.Builder builder,OkHttpClient client) {
-        return RetrofitUtil.getRetrofit(builder,client, AppService.APP_URL);
+    Retrofit provideAppRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return RetrofitUtil.getRetrofit(builder, client, AppService.APP_URL);
     }
 
     //根据标记获取容器中并添加了AppUrl标记的Retrofit，创建AppService
@@ -59,8 +59,8 @@ public class HttpModule {
     @Singleton
     @SubUrl
     @Provides
-    Retrofit provideSubRetrofit(Retrofit.Builder builder,OkHttpClient client) {
-        return RetrofitUtil.getRetrofit(builder,client, SubService.SUB_URL);
+    Retrofit provideSubRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return RetrofitUtil.getRetrofit(builder, client, SubService.SUB_URL);
     }
 
     //根据标记获取容器中并添加了SubUrl标记的Retrofit，创建SubService

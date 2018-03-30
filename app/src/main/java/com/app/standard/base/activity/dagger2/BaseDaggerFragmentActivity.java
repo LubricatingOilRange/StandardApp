@@ -1,4 +1,4 @@
-package com.app.standard.base.activity;
+package com.app.standard.base.activity.dagger2;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,7 +12,7 @@ import com.app.standard.base.impl.FragmentActivityImpl;
 //  Created by ruibing.han on 2018/3/27.
 
 //无MVP的FragmentActivity基类
-public abstract class BaseFragmentActivity extends BaseActivity implements FragmentActivityImpl {
+public abstract class BaseDaggerFragmentActivity extends BaseDaggerActivity implements FragmentActivityImpl {
 
     private boolean isSkipBackStack = true;//当前是否执行跳跃回退 返回
 

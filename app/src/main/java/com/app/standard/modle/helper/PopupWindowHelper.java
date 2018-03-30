@@ -20,7 +20,7 @@ public class PopupWindowHelper {
      * @param context
      * @param commonPopupWindow
      */
-    public static void showNormal(final Context context, View parent, String[] arrayData, CommonPopupWindow commonPopupWindow) {
+    public static CommonPopupWindow showNormal(final Context context, View parent, String[] arrayData, CommonPopupWindow commonPopupWindow) {
         if (commonPopupWindow == null) {
             commonPopupWindow = new CommonPopupWindow.Builder(context)
                     .setBackGroundLevel(0.5f)//window展示的时候，背景透明度
@@ -43,5 +43,6 @@ public class PopupWindowHelper {
         bt_window.setText(arrayData[1]);
 
         commonPopupWindow.showNormal(parent, GRAVITY);//设置显示在parent的左边
+        return commonPopupWindow;
     }
 }

@@ -5,7 +5,6 @@ package com.app.standard.modle.dagger2.module;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 
-import com.app.standard.modle.dagger2.scope.ActivityScope;
 import com.app.standard.modle.dagger2.scope.FragmentScope;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
