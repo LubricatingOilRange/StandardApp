@@ -4,7 +4,6 @@ package com.app.standard.base.fragment;
 //  Created by ruibing.han on 2018/3/29.
 
 import com.app.standard.app.MyApplication;
-import com.app.standard.base.activity.BaseDaggerActivity;
 import com.app.standard.base.mvp.BasePresenter;
 import com.app.standard.base.mvp.BaseView;
 import com.app.standard.modle.dagger2.component.DaggerFragmentComponent;
@@ -13,10 +12,7 @@ import com.app.standard.modle.dagger2.module.FragmentModule;
 
 import javax.inject.Inject;
 
-public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseDaggerFragment implements BaseView {
-
-    @Inject
-    T mPresenter;
+public abstract class BaseDaggerFragment extends BaseFragment implements BaseView {
 
     private FragmentComponent mFragmentComponent;
 
@@ -31,14 +27,14 @@ public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseDagge
     }
 
     @Override
-    protected void onInitPagAndData() {
-        if (mPresenter != null) {
-            mPresenter.attachView(this);
-        }
+    public void onViewCreatedInit() {
 
-        onViewCreatedInitPageAndData();//初始化页面和数据
+        onFragmentInject();//依赖注入
+
+        onInitPagAndData();//初始化页面和数据
     }
 
-    protected abstract void onViewCreatedInitPageAndData();//进行页面和数据初始化
+    protected abstract void onFragmentInject();//将当前fragment注入到 FragmentComponent容器中 产生依赖
 
+    protected abstract void onInitPagAndData();//初始化页面和数据
 }

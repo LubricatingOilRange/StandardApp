@@ -21,6 +21,7 @@ public class DialogHelper {
     //--------------------------------------DialogFragment的使用------------------------------------
     static final String dialog = "dialogFragment";
 
+    //每次弹框 都会创建一次DialogFragment 不适合多次重复的弹框
     public static void showDialogFragment(final String[] arrayData, FragmentManager manager) {
         CommonDialogFragment.newInstance(new CommonDialogFragment.OnDialogCallBack() {
             @Override
@@ -60,6 +61,7 @@ public class DialogHelper {
     }
 
     //-----------------------------------------Dialog的使用-----------------------------------------
+    //多次相同弹框，只跟页面内容
     public static void showDialog(final Context context, final String[] arrayData, CommonDialog commonDialog) {
         if (commonDialog == null) {
             commonDialog = new CommonDialog.Builder(context)

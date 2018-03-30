@@ -39,6 +39,8 @@ public class LoginActivity extends BaseDaggerActivity {
 
     @Override
     protected void onInitPageAndData() {
+        RxPermissions rxPermissions = getActivityComponent().getRxPermissions();
+        Activity activity = getActivityComponent().getActivity();
 
         RxBus.getDefault().toDefaultFlowAble(Object.class, new Consumer<Object>() {
             @Override

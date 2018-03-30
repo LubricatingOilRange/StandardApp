@@ -11,33 +11,21 @@ import com.app.standard.modle.dagger2.module.ActivityModule;
 
 import javax.inject.Inject;
 
-public abstract class BaseMvpActivity<T extends BasePresenter> extends BaseActivity implements BaseView {
+public abstract class BaseMvpActivity<T extends BasePresenter> extends BaseDaggerActivity implements BaseView {
 
     @Inject
    protected T mPresenter;
 
-    private ActivityComponent mActivityComponent;
-    protected ActivityComponent getActivityComponent() {
-        if (mActivityComponent == null) {
-            mActivityComponent =  DaggerActivityComponent.builder()
-                    .appComponent(MyApplication.getAppComponent())
-                    .activityModule(new ActivityModule(this))
-                    .build();
-        }
-        return mActivityComponent;
-    }
-
     @Override
-    public void onCreateInit() {
-
-        onActivityInject();//将当前的Activity注入到ActivityComponent容器中
-
+    protected void onInitPageAndData() {
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
 
-        onInitPageAndData();//初始化页面和数据
+        onCreateInitPageAndData();//页面进行初始化操作
     }
+
+    protected abstract void onCreateInitPageAndData();//初始化页面和数据
 
     @Override
     protected void onDestroy() {
@@ -46,8 +34,4 @@ public abstract class BaseMvpActivity<T extends BasePresenter> extends BaseActiv
         }
         super.onDestroy();
     }
-
-    protected abstract void onActivityInject();
-
-    protected abstract void onInitPageAndData();
 }

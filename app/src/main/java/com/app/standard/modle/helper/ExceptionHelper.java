@@ -7,7 +7,8 @@ import javax.inject.Inject;
 //统一异常处理
 public class ExceptionHelper {
 
-    public ExceptionHelper() {
+    @Inject
+    ExceptionHelper() {
     }
 
     public void handleException() {
