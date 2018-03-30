@@ -22,7 +22,6 @@ import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,6 +35,8 @@ import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+
+import com.app.standard.util.LogUtil;
 
 /**
  * 支持下拉刷新和上拉加载更多<br>
@@ -185,7 +186,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    /**
+    /*
      * 添加头布局
      *
      * @param child
@@ -226,7 +227,7 @@ public class SwipeRefreshLayout extends ViewGroup {
     public SwipeRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        /**
+        /*
          * getScaledTouchSlop是一个距离，表示滑动的时候，手的移动要大于这个距离才开始移动控件。如果小于这个距离就不触发移动控件
          */
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -260,7 +261,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         mTotalDragDistance = mSpinnerFinalOffset;
     }
 
-    /**
+    /*
      * 孩子节点绘制的顺序
      *
      * @param childCount
@@ -318,7 +319,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         addView(mFooterViewContainer);
     }
 
-    /**
+    /*
      * 设置
      *
      * @param listener
@@ -331,7 +332,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         mHeadViewContainer.setBackgroundColor(color);
     }
 
-    /**
+    /*
      * 设置上拉加载更多的接口
      *
      * @param onPushLoadMoreListener
@@ -427,7 +428,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         return mRefreshing;
     }
 
-    /**
+    /*
      * 确保mTarget不为空<br>
      * mTarget一般是可滑动的ScrollView,ListView,RecyclerView等
      */
@@ -444,7 +445,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    /**
+    /*
      * Set the distance to trigger a sync in dips
      *
      * @param distance
@@ -477,7 +478,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         final int childTop = getPaddingTop() + distance - pushDistance;// 根据偏移量distance更新
         final int childWidth = width - getPaddingLeft() - getPaddingRight();
         final int childHeight = height - getPaddingTop() - getPaddingBottom();
-        Log.d("debug","debug:onLayout childHeight = " + childHeight);
+        LogUtil.d("debug", "debug:onLayout childHeight = " + childHeight);
         child.layout(childLeft, childTop, childLeft + childWidth, childTop
                 + childHeight);// 更新目标View的位置
         int headViewWidth = mHeadViewContainer.getMeasuredWidth();
@@ -534,11 +535,12 @@ public class SwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    /**
+    /*
      * 判断目标View是否滑动到顶部-还能否继续滑动
      *
      * @return
      */
+    @SuppressLint("ObsoleteSdkInt")
     public boolean isChildScrollToTop() {
         if (Build.VERSION.SDK_INT < 14) {
             if (mTarget instanceof AbsListView) {
@@ -654,7 +656,7 @@ public class SwipeRefreshLayout extends ViewGroup {
 
             case MotionEvent.ACTION_MOVE:
                 if (mActivePointerId == INVALID_POINTER) {
-                    Log.d("debug","Got ACTION_MOVE event but don't have an active pointer id.");
+                    LogUtil.d("debug", "Got ACTION_MOVE event but don't have an active pointer id.");
                     return false;
                 }
 
@@ -735,7 +737,7 @@ public class SwipeRefreshLayout extends ViewGroup {
                 final int pointerIndex = MotionEventCompat.findPointerIndex(ev,
                         mActivePointerId);
                 if (pointerIndex < 0) {
-                    Log.d("debug","Got ACTION_MOVE event but have an invalid active pointer id.");
+                    LogUtil.d("debug", "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
 
@@ -805,7 +807,7 @@ public class SwipeRefreshLayout extends ViewGroup {
             case MotionEvent.ACTION_CANCEL: {
                 if (mActivePointerId == INVALID_POINTER) {
                     if (action == MotionEvent.ACTION_UP) {
-                        Log.d("debug","Got ACTION_UP event but don't have an active pointer id.");
+                        LogUtil.d("debug", "Got ACTION_UP event but don't have an active pointer id.");
                     }
                     return false;
                 }
@@ -849,25 +851,26 @@ public class SwipeRefreshLayout extends ViewGroup {
         return true;
     }
 
-    /**
+    /*
      * 处理上拉加载更多的Touch事件
      *
      * @param ev
      * @param action
      * @return
      */
+    @SuppressLint("ObsoleteSdkInt")
     private boolean handlerPushTouchEvent(MotionEvent ev, int action) {
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 mActivePointerId = MotionEventCompat.getPointerId(ev, 0);
                 mIsBeingDragged = false;
-                Log.d("debug","debug:onTouchEvent ACTION_DOWN");
+                LogUtil.d("debug", "debug:onTouchEvent ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE: {
                 final int pointerIndex = MotionEventCompat.findPointerIndex(ev,
                         mActivePointerId);
                 if (pointerIndex < 0) {
-                    Log.d("debug","Got ACTION_MOVE event but have an invalid active pointer id.");
+                    LogUtil.d("debug", "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
                 final float y = MotionEventCompat.getY(ev, pointerIndex);
@@ -896,7 +899,7 @@ public class SwipeRefreshLayout extends ViewGroup {
             case MotionEvent.ACTION_CANCEL: {
                 if (mActivePointerId == INVALID_POINTER) {
                     if (action == MotionEvent.ACTION_UP) {
-                        Log.d("debug","Got ACTION_UP event but don't have an active pointer id.");
+                        LogUtil.d("debug", "Got ACTION_UP event but don't have an active pointer id.");
                     }
                     return false;
                 }
@@ -928,7 +931,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         return true;
     }
 
-    /**
+    /*
      * 松手之后，使用动画将Footer从距离start变化到end
      *
      * @param start
@@ -964,11 +967,12 @@ public class SwipeRefreshLayout extends ViewGroup {
         valueAnimator.start();
     }
 
-    /**
+    /*
      * 设置停止加载
      *
      * @param loadMore
      */
+    @SuppressLint("ObsoleteSdkInt")
     public void setLoadMore(boolean loadMore) {
         if (!loadMore && mLoadMore) {// 停止加载
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
@@ -1012,7 +1016,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         resetTargetLayoutDelay(ANIMATE_TO_START_DURATION);
     }
 
-    /**
+    /*
      * 重置Target位置
      *
      * @param delay
@@ -1110,6 +1114,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         mHeadViewContainer.startAnimation(mScaleDownToStartAnimation);
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private void setTargetOffsetTopAndBottom(int offset, boolean requiresUpdate) {
         mHeadViewContainer.bringToFront();
         mHeadViewContainer.offsetTopAndBottom(offset);
@@ -1150,7 +1155,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    /**
+    /*
      * @Description 下拉刷新布局头部的容器
      */
     private class HeadViewContainer extends RelativeLayout {
@@ -1182,7 +1187,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    /**
+    /*
      * 判断子View是否跟随手指的滑动而滑动，默认跟随
      *
      * @return
@@ -1191,7 +1196,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         return targetScrollWithLayout;
     }
 
-    /**
+    /*
      * 设置子View是否跟谁手指的滑动而滑动
      *
      * @param targetScrollWithLayout
@@ -1222,49 +1227,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         void onPushEnable(boolean enable);
     }
 
-    /**
-     * Adapter
-     */
-    public class OnPullRefreshListenerAdapter implements OnPullRefreshListener {
-
-        @Override
-        public void onRefresh() {
-
-        }
-
-        @Override
-        public void onPullDistance(int distance) {
-
-        }
-
-        @Override
-        public void onPullEnable(boolean enable) {
-
-        }
-
-    }
-
-    public class OnPushLoadMoreListenerAdapter implements
-            OnPushLoadMoreListener {
-
-        @Override
-        public void onLoadMore() {
-
-        }
-
-        @Override
-        public void onPushDistance(int distance) {
-
-        }
-
-        @Override
-        public void onPushEnable(boolean enable) {
-
-        }
-
-    }
-
-    /**
+    /*
      * 设置默认下拉刷新进度条的颜色
      *
      * @param color
@@ -1275,7 +1238,7 @@ public class SwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    /**
+    /*
      * 设置圆圈的背景色
      *
      * @param color
@@ -1375,7 +1338,7 @@ public class SwipeRefreshLayout extends ViewGroup {
             this.shadowColor = shadowColor;
         }
 
-        /**
+        /*
          * 根据画笔的颜色，创建画笔
          *
          * @return
@@ -1391,6 +1354,7 @@ public class SwipeRefreshLayout extends ViewGroup {
             return progressPaint;
         }
 
+        @SuppressLint("ObsoleteSdkInt")
         private Paint createBgPaint() {
             if (this.bgPaint == null) {
                 bgPaint = new Paint();

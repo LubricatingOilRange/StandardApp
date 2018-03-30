@@ -3,13 +3,15 @@ package com.app.standard.base.fragment;
 
 //  Created by ruibing.han on 2018/3/29.
 
+import android.app.Activity;
+
 import com.app.standard.app.MyApplication;
 import com.app.standard.base.mvp.BaseView;
 import com.app.standard.modle.dagger2.component.DaggerFragmentComponent;
 import com.app.standard.modle.dagger2.component.FragmentComponent;
 import com.app.standard.modle.dagger2.module.FragmentModule;
 
-public abstract class BaseDaggerFragment extends BaseFragment implements BaseView {
+public abstract class BaseDaggerFragment<A extends Activity> extends BaseFragment<A> implements BaseView {
 
     private FragmentComponent mFragmentComponent;
 

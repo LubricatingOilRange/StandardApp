@@ -35,4 +35,17 @@ public class LogUtil {
             Log.i(tag, errorMessage);
         }
     }
+
+    //debug
+    public static void d(String errorMessage) {
+        if (BuildConfig.DEBUG) {
+            Log.i(TAG, errorMessage);
+        }
+    }
+
+    public static void d(String tag,String errorMessage) {
+        if (BuildConfig.DEBUG) {
+            Log.i(tag, errorMessage);
+        }
+    }
 }

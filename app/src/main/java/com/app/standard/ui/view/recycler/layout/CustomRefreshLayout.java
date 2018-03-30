@@ -69,7 +69,7 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
         mOnRefreshCallBack = onRefreshCallBack;
     }
 
-   public interface OnRefreshCallBack {
+    public interface OnRefreshCallBack {
 
         void onRefresh();//下拉刷新
 
@@ -168,7 +168,7 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
         return loadMoreLayout;
     }
 
-    /**
+    /*
      * @param type (页面切换)
      */
     private int fragType = -1;//记录上一次切换页面的Type
@@ -208,7 +208,7 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
                 break;
 
             case REFRESH_FAILURE:
-               onPushRefreshFailure();//下拉刷新失败
+                onPushRefreshFailure();//下拉刷新失败
                 break;
 
             case LOAD_MORE_SUCCESSFUL:

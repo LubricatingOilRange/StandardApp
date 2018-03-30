@@ -4,10 +4,6 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
-/*
- * Created by ruibing.han on 2017/12/14.
- */
-
 public class UpdateAppService extends IntentService {
 
     public final static String INTENT_UPDATE_SERVICE = "intentUpdateService";

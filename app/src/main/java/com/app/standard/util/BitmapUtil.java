@@ -9,10 +9,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * Created by ruibing.han on 2018/2/23.
- */
-
 public class BitmapUtil {
     /**
      * 从本地path中获取bitmap，压缩后保存小图片到本地

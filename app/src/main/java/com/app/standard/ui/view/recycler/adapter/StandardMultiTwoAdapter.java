@@ -27,7 +27,7 @@ public abstract class StandardMultiTwoAdapter<A, B> extends BaseMultiItemQuickAd
         }
     }
 
-    public abstract @NonNull
+    abstract @NonNull
     int[] getLayoutArray();//获取布局数组
 
     @Override
@@ -42,7 +42,7 @@ public abstract class StandardMultiTwoAdapter<A, B> extends BaseMultiItemQuickAd
         }
     }
 
-    public abstract void convertLevelOne(BaseViewHolder holder, A a);//一级布局处理
+    abstract void convertLevelOne(BaseViewHolder holder, A a);//一级布局处理
 
-    public abstract void convertLevelTwo(BaseViewHolder holder, B b);//二级布局处理
+    abstract void convertLevelTwo(BaseViewHolder holder, B b);//二级布局处理
 }

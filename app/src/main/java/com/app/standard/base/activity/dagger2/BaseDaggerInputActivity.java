@@ -41,9 +41,6 @@ public abstract class BaseDaggerInputActivity extends BaseDaggerActivity {
     public static Boolean hideInputMethod(Context context, View v) {
         InputMethodManager imm = (InputMethodManager) context
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            return imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-        }
-        return false;
+        return imm != null && imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 }
