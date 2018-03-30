@@ -1,11 +1,13 @@
 1.在RecyclerView布局中添加 android:overScrollMode="never"
-2,OkHttp + Retrofit + RxJava2 + RxBus+ Dagger2
-3,BaseActivity + BaseFragment的抽取
-4，Dialog + PopupWindow
-5,RxPermission动态权限的添加
-6,RecyclerView中多级条目的添加，加载条目动画添加，下拉刷新和上拉加载更多的添加，
+2,沉浸式状态栏的实现
+3,OkHttp + Retrofit + RxJava2 + RxBus+ Dagger2
+4,BaseActivity + BaseFragment的抽取
+5，Dialog + PopupWindow的Builder设计模式的抽取
+6,RxPermission动态权限的添加
+7,RecyclerView中多级条目的添加，加载条目动画添加，下拉刷新和上拉加载更多的添加，
                 ItemDecoration条目分割线的添加，顶部条目悬浮的实现，
                 Multi-itemType不同类型的条目的添加（？）
-7,Glide图片加载框架的添加
-8,Toast的自定义和ToastUtil工具类
-9,项目经常用的工具类的添加（SPUtil,ViewTool,LogUtil,NetWorkUtil等）
+8,Glide图片加载框架的添加
+9,Toast的自定义和ToastUtil工具类
+10,项目经常用的工具类的添加（SPUtil,ViewTool,LogUtil,NetWorkUtil等）
+11，屏幕适配（google的AutoLayout实现）

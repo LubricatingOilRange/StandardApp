@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AppAutoLayout" />
             <option value="$PROJECT_DIR$/NetWork" />
             <option value="$PROJECT_DIR$/OptimizeLauncher" />
             <option value="$PROJECT_DIR$/RecyclerView" />
