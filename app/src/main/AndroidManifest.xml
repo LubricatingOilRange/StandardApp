@@ -16,6 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- 初始化屏幕宽高大小基本配置来进行缩放适配-->
+        <meta-data
+            android:name="design_width"
+            android:value="720" />
+        <meta-data
+            android:name="design_height"
+            android:value="1280" />
+
         <!--======================================Service=========================-->
         <!--Application 初始化-->
         <service android:name=".component.service.AppIntentService" />

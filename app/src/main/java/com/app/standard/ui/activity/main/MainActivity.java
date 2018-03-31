@@ -52,7 +52,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     @Override
     public void onBackPressed() {
-
         if (isTaskRoot()) {//判断是否是根
             moveTaskToBack(false);//将app 移动到后台  不关闭主页面，等再次打开app,实现暖启动
         } else {

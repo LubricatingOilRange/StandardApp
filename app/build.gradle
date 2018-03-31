@@ -30,7 +30,7 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.25'//recyclerAdapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.25'//recyclerView-Adapter
 
     //dagger 的依赖
     implementation "com.google.dagger:dagger:2.0.2"

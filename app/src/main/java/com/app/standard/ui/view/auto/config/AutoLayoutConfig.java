@@ -86,6 +86,4 @@ public class AutoLayoutConfig {
 
         LogUtil.i(" designWidth =" + mDesignWidth + " , designHeight = " + mDesignHeight);
     }
-
-
 }

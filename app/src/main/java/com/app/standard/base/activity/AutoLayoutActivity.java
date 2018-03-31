@@ -9,7 +9,15 @@ import com.app.standard.ui.view.auto.widget.AutoFrameLayout;
 import com.app.standard.ui.view.auto.widget.AutoLinearLayout;
 import com.app.standard.ui.view.auto.widget.AutoRelativeLayout;
 
-public class  AutoLayoutActivity extends AppCompatActivity {
+//目前支持属性:
+//        layout_width
+//        layout_height
+//        layout_margin(left,top,right,bottom)
+//        padding(left,top,right,bottom)
+//        textSize
+//        maxWidth, minWidth, maxHeight, minHeight
+
+public abstract class  AutoLayoutActivity extends AppCompatActivity {
     private static final String LAYOUT_LINEAR_LAYOUT = "LinearLayout";
     private static final String LAYOUT_FRAME_LAYOUT = "FrameLayout";
     private static final String LAYOUT_RELATIVE_LAYOUT = "RelativeLayout";
@@ -34,6 +42,4 @@ public class  AutoLayoutActivity extends AppCompatActivity {
 
         return super.onCreateView(name, context, attrs);
     }
-
-
 }
