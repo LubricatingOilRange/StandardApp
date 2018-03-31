@@ -11,6 +11,10 @@ import android.net.NetworkInfo;
 
 //网络连接状态，。。。
 public class NetWorkUtil {
+
+    private NetWorkUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
     /**
      * 获取当前网络的状态
      *

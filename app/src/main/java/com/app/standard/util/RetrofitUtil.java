@@ -8,6 +8,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtil {
 
+    private RetrofitUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     //获取RetrofitBuilder
     public static Retrofit.Builder getRetrofitBuilder() {
         return new Retrofit.Builder();

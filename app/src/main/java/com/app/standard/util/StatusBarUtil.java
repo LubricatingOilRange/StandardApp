@@ -22,6 +22,9 @@ import java.lang.reflect.Method;
 
 public class StatusBarUtil {
 
+    private StatusBarUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
     /**
      * 1 , 普通的设置 状态栏颜色 - setColor
      * 2 ，为滑动返回界面设置状态栏颜色 - setColorForSwipeBack

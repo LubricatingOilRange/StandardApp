@@ -8,6 +8,10 @@ import com.app.standard.BuildConfig;
 
 public class LogUtil {
 
+    private LogUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     private static final String TAG = LogUtil.class.getSimpleName();
 
     //错误日志

@@ -10,6 +10,9 @@ import java.util.Date;
 
 public class DateUtil {
 
+    private DateUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
 
     /*
      * 根据不同的dateType 返回不同的日期格式

@@ -10,6 +10,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class BitmapUtil {
+
+    private BitmapUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
     /**
      * 从本地path中获取bitmap，压缩后保存小图片到本地
      *

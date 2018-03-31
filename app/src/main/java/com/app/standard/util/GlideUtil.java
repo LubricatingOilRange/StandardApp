@@ -12,6 +12,11 @@ import com.app.standard.modle.glide.RotateTransformation;
 import com.bumptech.glide.Glide;
 
 public class GlideUtil {
+
+    private GlideUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     private final static String LOAD_BITMAP = "GLIDE_LOAD_BITMAP";//加载bitmap，如果是GIF则显示第一帧
     private final static String LOAD_GIF = "GLIDE_LOAD_GIF";//加载gif动画
 

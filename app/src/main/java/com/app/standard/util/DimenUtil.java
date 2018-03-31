@@ -6,6 +6,11 @@ import android.content.Context;
 import android.util.TypedValue;
 
 public class DimenUtil {
+    //屏蔽new 创建和反射创建
+    private DimenUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     private static int getComplexUnit(int data) {
         return TypedValue.COMPLEX_UNIT_MASK & (data);
     }

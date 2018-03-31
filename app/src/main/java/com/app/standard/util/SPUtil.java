@@ -18,6 +18,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class SPUtil {
+
+    //屏蔽new 创建和反射创建
+    private SPUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     //-------------------------------------------file_key------------------------------
     public static final String FILE_NAME = "share_data";
     private static final String CONFIG = "config";
@@ -25,11 +31,6 @@ public class SPUtil {
     //-------------------------------------------name_key------------------------------
     public static final String RECORD_TIME = "record_time";//前台或后台进程切换的时间保存
     public static final String USER_COMMAND = "userCommand";//用户的保存
-
-    //屏蔽new 创建和反射创建
-    private SPUtil() {
-        throw new UnsupportedOperationException("cannot be instantiated");
-    }
 
     /*
      * 引用数据类型的保存(对象)

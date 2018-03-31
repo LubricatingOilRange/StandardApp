@@ -16,6 +16,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RxJavaUtil {
 
+    private RxJavaUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     /*
      * 统一线程处理调度
      *

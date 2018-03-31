@@ -18,6 +18,10 @@ import okhttp3.logging.HttpLoggingInterceptor;
 //qualiter
 public class OkHttpUtil {
 
+    private OkHttpUtil() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     //获取OkHttpClientBuilder
     public static OkHttpClient.Builder getOkHttpClientBuilder() {
         return new OkHttpClient.Builder();
