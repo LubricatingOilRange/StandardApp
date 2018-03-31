@@ -6,10 +6,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.animation.BaseAnimation;
 
-/**
- * Created by ruibing.han on 2018/3/19.
- */
-
+//自定义RecyclerView的条目展示的动画效果
 public class MyAnimation implements BaseAnimation {
     @Override
     public Animator[] getAnimators(View view) {

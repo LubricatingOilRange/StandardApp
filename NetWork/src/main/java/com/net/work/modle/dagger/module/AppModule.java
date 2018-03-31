@@ -1,11 +1,8 @@
 package com.net.work.modle.dagger.module;
 
-import android.app.Activity;
-
 import com.net.work.app.MyApplication;
 import com.net.work.modle.helper.HttpHelper;
-import com.net.work.modle.helper.ServiceHelper;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.net.work.modle.helper.RetrofitHelper;
 
 import javax.inject.Singleton;
 
@@ -29,8 +26,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    HttpHelper provideServiceHelper(ServiceHelper serviceHelper) {
-        return serviceHelper;
+    HttpHelper provideServiceHelper(RetrofitHelper retrofitHelper) {
+        return retrofitHelper;
     }
 
 }

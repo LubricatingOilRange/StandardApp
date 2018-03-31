@@ -15,7 +15,6 @@ public class ToastUtil {
 
     /*
      * 短时间显示Toast
-     *
      * @param context
      * @param message
      */
@@ -26,7 +25,6 @@ public class ToastUtil {
 
     /*
      * 短时间显示Toast
-     *
      * @param context
      * @param message
      */
@@ -37,7 +35,6 @@ public class ToastUtil {
 
     /*
      * 长时间显示Toast
-     *
      * @param context
      * @param message
      */

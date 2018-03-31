@@ -42,11 +42,6 @@ public class SuspendToolBarActivity extends AppCompatActivity {
         mAdapter = new StandardAdapter<Province>(R.layout.item_scroll_header, null) {
             @Override
             protected void convert(BaseViewHolder holder, Province item) {
-                if (holder.getAdapterPosition() > 0) {
-                    holder.setVisible(R.id.ll_suspend_header, true);
-                } else {
-                    holder.setVisible(R.id.ll_suspend_header, false);
-                }
                 holder.setText(R.id.tv_suspend, item.getProvinceName());
                 holder.setBackgroundRes(R.id.iv_suspend, item.getIcon());
                 holder.setBackgroundColor(R.id.ll_suspend_header, Color.parseColor(getRandomColor(holder.getAdapterPosition())));

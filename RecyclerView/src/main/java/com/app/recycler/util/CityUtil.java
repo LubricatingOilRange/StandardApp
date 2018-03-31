@@ -9,8 +9,6 @@ import java.util.List;
 public class CityUtil {
     /**
      * 获取城市名
-     *
-     * @return
      */
     public static List<City> getCityList() {
         List<City> dataList = new ArrayList<>();

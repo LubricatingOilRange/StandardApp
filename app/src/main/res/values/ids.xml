@@ -2,4 +2,8 @@
 <resources>
     <item type="id" name="statusBarUtil_fake_status_bar_view" />
     <item type="id" name="statusBarUtil_translucent_view" />
+
+    <item name="id_tag_auto_layout_size" type="id" />
+    <item name="id_tag_auto_layout_padding" type="id" />
+    <item name="id_tag_auto_layout_margin" type="id" />
 </resources>

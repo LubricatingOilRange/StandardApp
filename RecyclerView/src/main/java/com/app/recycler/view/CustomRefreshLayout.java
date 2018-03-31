@@ -3,9 +3,7 @@ package com.app.recycler.view;
 import android.content.Context;
 import android.support.annotation.IntDef;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -70,7 +68,7 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
         mOnRefreshCallBack = onRefreshCallBack;
     }
 
-   public interface OnRefreshCallBack {
+    public interface OnRefreshCallBack {
 
         void onRefresh();//下拉刷新
 
@@ -209,7 +207,7 @@ public abstract class CustomRefreshLayout extends FrameLayout implements CustomR
                 break;
 
             case REFRESH_FAILURE:
-               onPushRefreshFailure();//下拉刷新失败
+                onPushRefreshFailure();//下拉刷新失败
                 break;
 
             case LOAD_MORE_SUCCESSFUL:

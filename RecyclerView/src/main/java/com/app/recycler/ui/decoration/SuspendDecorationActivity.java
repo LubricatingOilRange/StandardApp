@@ -1,9 +1,7 @@
 package com.app.recycler.ui.decoration;
 
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -12,7 +10,6 @@ import com.app.recycler.R;
 import com.app.recycler.adapter.StandardAdapter;
 import com.app.recycler.entry.City;
 import com.app.recycler.util.CityUtil;
-import com.app.recycler.view.decoration.ColorItemDecoration;
 import com.app.recycler.view.decoration.SuspendItemDecoration;
 import com.app.recycler.view.decoration.SuspendItemListener;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -47,7 +44,7 @@ public class SuspendDecorationActivity extends AppCompatActivity {
         };
 
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setClipToPadding(false);//不会绘制到Padding区域
         SuspendItemDecoration itemDecoration = new SuspendItemDecoration(new SuspendItemListener() {
             @Override
@@ -62,7 +59,7 @@ public class SuspendDecorationActivity extends AppCompatActivity {
 
             @Override
             public void onGroupClick(int position) {
-                Toast.makeText(SuspendDecorationActivity.this,"group:" + position + "--"+dataList.get(position).getProvince(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(SuspendDecorationActivity.this, "group:" + position + "--" + dataList.get(position).getProvince(), Toast.LENGTH_SHORT).show();
             }
 
         });

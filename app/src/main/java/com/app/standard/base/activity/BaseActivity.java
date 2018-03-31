@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 //无MVP的Activity基类
-public abstract class BaseActivity extends AppCompatActivity implements ActivityImpl {
+public abstract class BaseActivity extends AutoLayoutActivity implements ActivityImpl {
 
     public static final String BUNDLE_NAME = "afferentName";//activity页面传入的数据Bundle的name
     private Unbinder mUnBind;

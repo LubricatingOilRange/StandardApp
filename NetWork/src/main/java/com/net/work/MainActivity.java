@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        Flowable<BaseResponse<String>> login = MyApplication.getAppComponent().getServiceHelper().login(null);
+        Flowable<BaseResponse<String>> login = MyApplication.getAppComponent().getRetrofitHelper().login(null);
         mCompositeDisposable.add(login
                 .compose(RxUtil.<BaseResponse<String>>rxSchedulerHelper())
                 .compose(RxUtil.<String>handleBaseResponseResult())

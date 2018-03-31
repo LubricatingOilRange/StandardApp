@@ -2,10 +2,6 @@ package com.app.recycler.entry;
 
 import java.util.List;
 
-/**
- * Created by ruibing.han on 2018/3/23.
- */
-
 public class Province {
     private String provinceName;
 
