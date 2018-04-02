@@ -42,8 +42,8 @@ public class ColorItemDecoration extends RecyclerView.ItemDecoration {
 
     private final Paint mPaint = new Paint();;
 
-    public ColorItemDecoration(Context context, int orientation, @ColorRes int colorId, int lineSize) {
-        this.mLineSize = lineSize;
+    public ColorItemDecoration(Context context, int orientation, @ColorRes int colorId, int linePxValue) {
+        this.mLineSize = linePxValue;
 
         setOrientation(orientation);
 
@@ -94,7 +94,7 @@ public class ColorItemDecoration extends RecyclerView.ItemDecoration {
         }
 
         final int childCount = parent.getChildCount();
-        for (int i = 0; i < childCount-1; i++) {
+        for (int i = 0; i < childCount -1 ; i++) {
             final View child = parent.getChildAt(i);
             parent.getDecoratedBoundsWithMargins(child, mBounds);
             final int bottom = mBounds.bottom + Math.round(ViewCompat.getTranslationY(child));
@@ -121,7 +121,7 @@ public class ColorItemDecoration extends RecyclerView.ItemDecoration {
         }
 
         final int childCount = parent.getChildCount();
-        for (int i = 0; i < childCount-1; i++) {
+        for (int i = 0; i < childCount - 1; i++) {
             final View child = parent.getChildAt(i);
             parent.getLayoutManager().getDecoratedBoundsWithMargins(child, mBounds);
             final int right = mBounds.right + Math.round(ViewCompat.getTranslationX(child));

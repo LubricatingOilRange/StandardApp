@@ -86,4 +86,16 @@
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_complex_item"
+        android:layout_width="match_parent"
+        android:text="RecyclerView实现多类型条目 - 复杂布局"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

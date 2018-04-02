@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.app.recycler.R;
 import com.app.recycler.ui.anim.AnimationActivity;
+import com.app.recycler.ui.complex.ComplexItemActivity;
 import com.app.recycler.ui.decoration.ScrollHeaderActivity;
 import com.app.recycler.ui.decoration.SuspendToolBarActivity;
 import com.app.recycler.ui.multi_item.MultiLevel2Activity;
@@ -76,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SuspendToolBarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView实现多类型条目 - 复杂布局
+        findViewById(R.id.tv_complex_item).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ComplexItemActivity.class);
                 startActivity(intent);
             }
         });

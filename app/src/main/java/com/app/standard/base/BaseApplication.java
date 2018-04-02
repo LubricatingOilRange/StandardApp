@@ -3,10 +3,12 @@ package com.app.standard.base;
 import android.app.Application;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
 import com.app.standard.base.impl.ApplicationImpl;
+import com.app.standard.util.LogUtil;
 
 public abstract class BaseApplication extends Application implements ApplicationImpl {
 
@@ -43,6 +45,7 @@ public abstract class BaseApplication extends Application implements Application
             DIMEN_DPI = dm.densityDpi;
             SCREEN_WIDTH = dm.widthPixels;
             SCREEN_HEIGHT = dm.heightPixels;
+            LogUtil.d("screen", "宽: " + SCREEN_WIDTH + ",高: " + SCREEN_HEIGHT);
         }
     }
 }

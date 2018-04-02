@@ -9,5 +9,6 @@ import java.io.File;
 public class Constant {
     public static final boolean DEBUG = true;//当前是否是在测试阶段
 
+    //网络缓存
     public static final String CACHE_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + "StandardApp";
 }

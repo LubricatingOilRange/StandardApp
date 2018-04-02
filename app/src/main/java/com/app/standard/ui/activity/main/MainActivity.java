@@ -1,17 +1,25 @@
 package com.app.standard.ui.activity.main;
 
-import android.view.View;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.app.standard.R;
 import com.app.standard.base.activity.mvp.BaseMvpActivity;
+import com.app.standard.modle.helper.ExceptionHelper;
 import com.app.standard.modle.http.exception.AppException;
 import com.app.standard.ui.view.custom.CustomToast;
+import com.app.standard.ui.view.recycler.adapter.StandardAdapter;
+import com.app.standard.ui.view.recycler.decoration.ColorItemDecoration;
+import com.chad.library.adapter.base.BaseViewHolder;
 
-import butterknife.OnClick;
-import io.reactivex.disposables.Disposable;
+import butterknife.BindView;
 
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
-    private Disposable mPermissionDisposable;
+
+    @BindView(R.id.frag_recyclerView)
+    RecyclerView frag_recyclerView;
+
+    private StandardAdapter<String> adapter;
 
     @Override
     public int getLayoutId() {
@@ -23,20 +31,24 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
         getActivityComponent().inject(this);
     }
 
-    @OnClick({R.id.tv_getData, R.id.tv_send})
-    void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_getData://RxJava 获取网络数据
-//                mPresenter.getData();
-                break;
-            case R.id.tv_send://RxBus 发送消息
-                break;
-        }
-    }
-
     @Override
     protected void onCreateInitPageAndData() {
+        adapter = new StandardAdapter<String>(R.layout.item_main, null) {
+            @Override
+            protected void convert(BaseViewHolder holder, String item) {
+                holder.setText(R.id.tv_content, item);
+            }
+        };
+        ColorItemDecoration itemDecoration = new ColorItemDecoration(this, ColorItemDecoration.VERTICAL, R.color.colorPrimary, 8);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        frag_recyclerView.setLayoutManager(manager);
+        frag_recyclerView.addItemDecoration(itemDecoration);
+        frag_recyclerView.setAdapter(adapter);
 
+        for (int i = 0; i < 50; i++) {
+            adapter.getData().add("多么痛的礼物，你是我的全部---" + i);
+        }
+        adapter.notifyDataSetChanged();
     }
 
     //展示网络获取成功后的数据
@@ -47,7 +59,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     //展示网络获取失败的错误信息
     @Override
     public void showErrorMsg(AppException e) {
-        CustomToast.create(this).longShow(e.getMsg());
+        ExceptionHelper.handleException(this,e);
     }
 
     @Override

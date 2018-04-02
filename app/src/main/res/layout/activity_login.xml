@@ -5,29 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="PxUsage" >
 
     <TextView
         android:id="@+id/tv_send"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100px"
         android:gravity="center"
-        android:layout_margin="20dp"
-        android:padding="20dp"
+        android:layout_margin="40px"
         android:background="@color/colorPrimaryDark"
-        android:textSize="16sp"
+        android:textSize="32px"
         android:textColor="@color/colorAccent"
         android:text="RxBus发送消息"/>
 
     <TextView
         android:id="@+id/tv_accept_message"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200px"
         android:gravity="center"
-        android:layout_margin="20dp"
-        android:padding="20dp"
-        android:textSize="16sp"
-        android:text="aaaaaa"
-        android:textColor="@color/colorAccent"/>
+        android:layout_margin="40px"
+        android:padding="40px"
+        android:textSize="50px"
+        android:text="你终于来了额"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

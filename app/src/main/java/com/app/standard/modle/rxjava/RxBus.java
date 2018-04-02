@@ -11,6 +11,7 @@ import io.reactivex.processors.PublishProcessor;
 public class RxBus {
     // 主题
     private final FlowableProcessor<Object> bus;
+
     public static RxBus getDefault() {
         return RxBusHolder.sInstance;
     }
@@ -33,7 +34,6 @@ public class RxBus {
     // 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者
 
     /**
-     *
      * @param eventType 该数据类型的 Clazz
      */
     public <T> Flowable<T> toFlowAble(Class<T> eventType) {
@@ -43,8 +43,7 @@ public class RxBus {
     // 封装默认订阅
 
     /**
-     *
-     * @param eventType  该数据类型的 Clazz
+     * @param eventType 该数据类型的 Clazz
      */
     public <T> Disposable toDefaultFlowAble(Class<T> eventType, Consumer<T> action) {
         return bus.ofType(eventType).compose(RxJavaUtil.<T>rxSchedulerHelper()).subscribe(action);
