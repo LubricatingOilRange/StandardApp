@@ -14,6 +14,8 @@ import com.app.recycler.ui.multi_item.MultiLevel2Activity;
 import com.app.recycler.ui.multi_item.MultiLevel3Activity;
 import com.app.recycler.ui.refresh.RefreshActivity;
 import com.app.recycler.ui.decoration.SuspendDecorationActivity;
+import com.app.recycler.ui.section.SectionActivity;
+import com.app.recycler.ui.section.SectionSuspendActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,6 +88,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ComplexItemActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView中多类型条目 - 分割布局
+        findViewById(R.id.tv_section).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SectionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView中多类型条目 - 分割布局（顶部悬浮）
+        findViewById(R.id.tv_section_suspend).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SectionSuspendActivity.class);
                 startActivity(intent);
             }
         });

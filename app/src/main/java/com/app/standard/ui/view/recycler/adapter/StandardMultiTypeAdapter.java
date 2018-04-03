@@ -61,10 +61,10 @@ public abstract class StandardMultiTypeAdapter extends BaseMultiItemQuickAdapter
             case MultiTypeEntry.ITEM_TYPE_3://条目类型3
 //                helper.setText(R.id.tv_item_type, item.getContent());
                 break;
-            case MultiTypeEntry.ITEM_TYPE_4://条目类型3
+            case MultiTypeEntry.ITEM_TYPE_4://条目类型4
 //                helper.setText(R.id.tv_item_type, item.getContent());
                 break;
-            case MultiTypeEntry.ITEM_TYPE_5://条目类型4
+            case MultiTypeEntry.ITEM_TYPE_5://条目类型5
                 //一个条目列表中重复出现类型
                 switch (item.getSpanSize()) {
                     case MultiTypeEntry.SPAN_SIZE_3:

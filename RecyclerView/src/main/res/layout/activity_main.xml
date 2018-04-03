@@ -98,4 +98,30 @@
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_section"
+        android:layout_width="match_parent"
+        android:text="RecyclerView中多类型条目 - 分割布局"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_section_suspend"
+        android:layout_width="match_parent"
+        android:text="RecyclerView中多类型条目 - 分割布局（顶部悬浮）"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:background="#555555"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        tools:ignore="HardcodedText" />
+
+
 </LinearLayout>
