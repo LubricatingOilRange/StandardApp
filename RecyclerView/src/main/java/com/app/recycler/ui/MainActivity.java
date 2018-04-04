@@ -8,6 +8,7 @@ import android.view.View;
 import com.app.recycler.R;
 import com.app.recycler.ui.anim.AnimationActivity;
 import com.app.recycler.ui.complex.ComplexItemActivity;
+import com.app.recycler.ui.decoration.GridDecorationActivity;
 import com.app.recycler.ui.decoration.ScrollHeaderActivity;
 import com.app.recycler.ui.decoration.SuspendToolBarActivity;
 import com.app.recycler.ui.multi_item.MultiLevel2Activity;
@@ -79,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SuspendToolBarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //RecyclerView实现网格布局分割线
+        findViewById(R.id.tv_grid).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GridDecorationActivity.class);
                 startActivity(intent);
             }
         });

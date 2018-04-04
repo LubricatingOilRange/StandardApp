@@ -49,6 +49,7 @@ public class CityUtil {
         dataList.add(new City("泰州", JIANG_SU, JIANG_SU_ICOM));
         dataList.add(new City("常州", JIANG_SU, JIANG_SU_ICOM));
         dataList.add(new City("连云港", JIANG_SU, JIANG_SU_ICOM));
+//        dataList.add(new City("漳州", FU_JIAN, FU_JIAN_ICON));
         return dataList;
     }
 }

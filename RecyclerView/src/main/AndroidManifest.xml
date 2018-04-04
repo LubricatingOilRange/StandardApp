@@ -24,8 +24,9 @@
         <activity android:name=".ui.decoration.SuspendToolBarActivity" />
         <activity android:name=".ui.decoration.ScrollHeaderActivity" />
         <activity android:name=".ui.complex.ComplexItemActivity" />
-        <activity android:name=".ui.section.SectionActivity"/>
-        <activity android:name=".ui.section.SectionSuspendActivity"/>
+        <activity android:name=".ui.section.SectionActivity" />
+        <activity android:name=".ui.section.SectionSuspendActivity" />
+        <activity android:name=".ui.decoration.GridDecorationActivity"></activity>
     </application>
 
 </manifest>
