@@ -10,6 +10,7 @@ import com.app.standard.modle.http.exception.AppException;
 import com.app.standard.ui.view.custom.CustomToast;
 import com.app.standard.ui.view.recycler.adapter.StandardAdapter;
 import com.app.standard.ui.view.recycler.decoration.ColorItemDecoration;
+import com.app.standard.ui.view.recycler.manager.CustomLayoutManager;
 import com.chad.library.adapter.base.BaseViewHolder;
 
 import butterknife.BindView;
@@ -39,14 +40,12 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
                 holder.setText(R.id.tv_content, item);
             }
         };
-        ColorItemDecoration itemDecoration = new ColorItemDecoration(this, ColorItemDecoration.VERTICAL, R.color.colorPrimary, 8);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
+        CustomLayoutManager manager = new CustomLayoutManager(CustomLayoutManager.HORIZONTAL);
         frag_recyclerView.setLayoutManager(manager);
-        frag_recyclerView.addItemDecoration(itemDecoration);
         frag_recyclerView.setAdapter(adapter);
 
-        for (int i = 0; i < 50; i++) {
-            adapter.getData().add("多么痛的礼物，你是我的全部---" + i);
+        for (int i = 0; i < 20; i++) {
+            adapter.getData().add("aaa---" + i);
         }
         adapter.notifyDataSetChanged();
     }
@@ -54,6 +53,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     //展示网络获取成功后的数据
     @Override
     public void showData() {
+
     }
 
     //展示网络获取失败的错误信息

@@ -17,16 +17,11 @@ import android.view.View;
 
 //实现顶部悬浮
 public class SuspendItemDecoration extends RecyclerView.ItemDecoration {
-    @ColorInt
-    private int mGroupTextColor = Color.WHITE;//字体颜色，默认黑色
+
     private int mSideMargin = 10;   //边距 左边距
 
-    @ColorInt
-    private int mGroupBackground = Color.parseColor("#48BDFF");//group背景色，默认透明
     private int mGroupHeight = 120;  //悬浮栏高度
 
-    @ColorInt
-    private int mDivideColor = Color.parseColor("#CCCCCC");//分割线颜色，默认灰色
     private int mDivideHeight = 4;      //分割线宽度
 
     private Paint mDividePaint;
@@ -47,18 +42,18 @@ public class SuspendItemDecoration extends RecyclerView.ItemDecoration {
         //分割线画笔
         mDividePaint = new Paint();
         mDividePaint.setAntiAlias(true);
-        mDividePaint.setColor(mDivideColor);
+        mDividePaint.setColor(Color.parseColor("#CCCCCC"));//分割线颜色，默认灰色
 
         //设置悬浮栏背景的画笔---mGroutPaint
         mGroutPaint = new Paint();
         mGroutPaint.setAntiAlias(true);
-        mGroutPaint.setColor(mGroupBackground);
+        mGroutPaint.setColor(Color.parseColor("#48BDFF"));//group背景色，默认透明);
 
         //设置悬浮栏中文本的画笔
         mTextPaint = new TextPaint();
         mTextPaint.setAntiAlias(true);
         mTextPaint.setTextSize(50);
-        mTextPaint.setColor(mGroupTextColor);
+        mTextPaint.setColor(Color.WHITE);//字体颜色，默认黑色
         mTextPaint.setTextAlign(Paint.Align.LEFT);
     }
 

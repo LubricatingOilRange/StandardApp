@@ -1,6 +1,7 @@
 package com.app.standard.ui.activity.login;
 
 import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.app.standard.R;
@@ -37,6 +38,5 @@ public class LoginActivity extends BaseDaggerActivity {
 
     @Override
     protected void onInitPageAndData() {
-
     }
 }
