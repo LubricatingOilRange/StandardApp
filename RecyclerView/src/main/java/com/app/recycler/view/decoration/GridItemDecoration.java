@@ -49,75 +49,88 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void onDraw(Canvas c, RecyclerView parent, State state) {
+    public void onDrawOver(Canvas c, RecyclerView parent, State state) {
 
-        drawHorizontal(c, parent);
-        drawVertical(c, parent);
-
-    }
-
-    public void drawHorizontal(Canvas c, RecyclerView parent) {
         int childCount = parent.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (childCount % mSpanCount == 0 || i != childCount - 1) {
-                final View child = parent.getChildAt(i);
-                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
-                        .getLayoutParams();
-                final int left = child.getLeft() - params.leftMargin;
-                final int right = child.getRight() + params.rightMargin
-                        + mDivider.getIntrinsicWidth();
-                final int top = child.getBottom() + params.bottomMargin;
-                final int bottom = top + mDivider.getIntrinsicHeight();
-                mDivider.setBounds(left, top, right, bottom);
-                mDivider.draw(c);
+        for (int itemPosition = 0; itemPosition < parent.getChildCount(); itemPosition++) {
+
+            final View child = parent.getChildAt(itemPosition);
+            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
+                    .getLayoutParams();
+
+            if (itemPosition + 1 + mSpanCount <= childCount) {//该条目下面有条目
+                //判断是否是最后一列
+                if (isLastColumn(parent, itemPosition, mSpanCount, childCount)) {
+                    //横向
+                    drawHorizontal(c, child, params, itemPosition,childCount);
+                } else {
+                    //纵向
+                    drawVertical(c, child, params);
+                    //横向
+                    drawHorizontal(c, child, params, itemPosition,childCount);
+                }
+            } else { //该条目下面没有条目 -- 不绘制底部线
+                if (itemPosition + 1 != childCount && !isLastColumn(parent, itemPosition, mSpanCount, childCount)) {
+                    //不是最后一个，也不是最后一列
+                    //纵向
+                    drawVertical(c, child, params);
+                }
             }
         }
+
     }
 
-    public void drawVertical(Canvas c, RecyclerView parent) {
-        final int childCount = parent.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (childCount % mSpanCount == 0 || i != childCount - childCount % mSpanCount - 1) {
-                final View child = parent.getChildAt(i);
-
-                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
-                        .getLayoutParams();
-                final int top = child.getTop() - params.topMargin;
-                final int bottom = child.getBottom() + params.bottomMargin;
-                final int left = child.getRight() + params.rightMargin;
-                final int right = left + mDivider.getIntrinsicWidth();
-
-                mDivider.setBounds(left, top, right, bottom);
-                mDivider.draw(c);
-            }
+    private void drawHorizontal(Canvas c, View child, RecyclerView.LayoutParams params, int itemPosition, int childCount) {
+        final int left = child.getLeft() - params.leftMargin;
+        int point;
+        if (itemPosition + 1 + mSpanCount == childCount) {
+            point = 0;
+        } else {
+            point = mDivider.getIntrinsicWidth();
         }
+        final int right = child.getRight() + params.rightMargin + point;
+        final int top = child.getBottom() + params.bottomMargin;
+        final int bottom = top + mDivider.getIntrinsicHeight();
+        mDivider.setBounds(left, top, right, bottom);
+        mDivider.draw(c);
+
+    }
+
+    private void drawVertical(Canvas c, View child, RecyclerView.LayoutParams params) {
+        final int top = child.getTop() - params.topMargin;
+        final int bottom = child.getBottom() + params.bottomMargin;
+        final int left = child.getRight() + params.rightMargin;
+        final int right = left + mDivider.getIntrinsicWidth();
+
+        mDivider.setBounds(left, top, right, bottom);
+        mDivider.draw(c);
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, State state) {
         int itemPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
         int childCount = parent.getAdapter().getItemCount();
-        if (isLastRaw(parent, itemPosition, mSpanCount, childCount)) {// 如果是最后一行，则不需要绘制底部
 
-            int remainderValue = childCount % mSpanCount;
-            if (remainderValue == 0) {//刚好整除 ，不绘制底部
-                return;
+        if (itemPosition + 1 + mSpanCount <= childCount) {//该条目下面有条目
+            //判断是否是最后一列
+            if (isLastColumn(parent, itemPosition, mSpanCount, childCount)) {
+                outRect.set(0, 0, 0, mDivider.getIntrinsicWidth());
             } else {
-                if (itemPosition >= childCount - mSpanCount && itemPosition <= childCount - remainderValue) {//倒数第二排
-                   return;
+                outRect.set(0, 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicWidth());
+            }
+
+        } else { //该条目下面没有条目 -- 不绘制底部线
+            if (itemPosition + 1 != childCount && !isLastColumn(parent, itemPosition, mSpanCount, childCount)) {
+
+                //不是最后一个，也不是最后一列
+                outRect.set(0, 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicWidth());
+            } else {
+                if (itemPosition + 1 == childCount && !isLastColumn(parent, itemPosition, mSpanCount, childCount)) {
+                    outRect.set(0, 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicWidth());
+                } else {
+                    outRect.set(0, 0, 0, mDivider.getIntrinsicWidth());
                 }
             }
-            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
-
-        } else if (isLastColumn(parent, itemPosition, mSpanCount, childCount)) {// 如果是最后一列，则不需要绘制右边
-
-            if (childCount % mSpanCount == 0 || itemPosition != childCount - childCount % mSpanCount - 1) {//最后一个不绘制右边
-
-            }
-
-        } else {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth(),
-                    mDivider.getIntrinsicHeight());
         }
     }
 
@@ -187,6 +200,4 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
         }
         return false;
     }
-
-
 }

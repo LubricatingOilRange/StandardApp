@@ -3,7 +3,6 @@ package com.app.standard.base;
 import android.app.Application;
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 

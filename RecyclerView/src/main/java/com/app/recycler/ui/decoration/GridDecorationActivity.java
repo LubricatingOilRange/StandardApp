@@ -18,7 +18,6 @@ import java.util.List;
 
 //网格布局分割线
 public class GridDecorationActivity extends AppCompatActivity {
-    List<City> dataList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,36 +32,28 @@ public class GridDecorationActivity extends AppCompatActivity {
 
     private void initRecyclerView(RecyclerView recyclerView) {
         //模拟数据
-        adapter = new StandardAdapter<City>(R.layout.item_type_1, null) {
+        adapter = new StandardAdapter<City>(R.layout.item_type_1, getData()) {
             @Override
             protected void convert(BaseViewHolder holder, City item) {
                 holder.setText(R.id.tv_item_type, item.getName());
             }
         };
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,4);
 
-        GridItemDecoration itemDecoration = new GridItemDecoration(this,3);
+        GridItemDecoration itemDecoration = new GridItemDecoration(this,4);
         itemDecoration.setDrawable(R.drawable.shape_line_grid_dp2);
         recyclerView.addItemDecoration(itemDecoration);//添加分割线
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(adapter);
 
-        adapter.addData(getData());
     }
 
     private List<City> getData() {
         List<City> dataList = new ArrayList<>();
-        dataList.add(new City("福州", "", 0));
-        dataList.add(new City("福州", "", 0));
-        dataList.add(new City("福州", "", 0));
-
-        dataList.add(new City("福州", "", 0));
-        dataList.add(new City("福州", "", 0));
-        dataList.add(new City("福州", "", 0));
-
-        dataList.add(new City("福州", "", 0));
-        dataList.add(new City("福州", "", 0));
+        for (int i = 0; i < 22; i++) {
+            dataList.add(new City("福州", "", 0));
+        }
         return dataList;
     }
 }

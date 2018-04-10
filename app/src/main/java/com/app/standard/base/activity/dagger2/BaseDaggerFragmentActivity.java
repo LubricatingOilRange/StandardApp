@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import com.app.standard.R;
 import com.app.standard.base.fragment.BaseFragment;
 import com.app.standard.base.impl.FragmentActivityImpl;
+
 //  Created by ruibing.han on 2018/3/27.
 
 //无MVP的FragmentActivity基类
