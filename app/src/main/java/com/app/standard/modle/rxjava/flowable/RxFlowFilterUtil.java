@@ -219,7 +219,7 @@ public class RxFlowFilterUtil {
      */
     public static void skip() {
         Flowable.just(1, 2, 3, 4, 5, 6, 7)
-                .skip(2)// 不是索引
+                .skip(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
@@ -237,7 +237,7 @@ public class RxFlowFilterUtil {
      */
     public static void skipLast() {
         Flowable.just(1, 2, 3, 4, 5, 6, 7)
-                .skipLast(2)// 不是索引
+                .skipLast(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
@@ -254,7 +254,7 @@ public class RxFlowFilterUtil {
      */
     public static void take() {
         Flowable.just(1, 2, 3, 4, 5, 6)
-                .take(2)//不是索引
+                .take(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
@@ -271,7 +271,7 @@ public class RxFlowFilterUtil {
      */
     public static void takeLast() {
         Flowable.just(1, 2, 3, 4, 5, 6)
-                .takeLast(2)//不是索引
+                .takeLast(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {

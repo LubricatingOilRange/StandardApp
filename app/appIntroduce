@@ -11,3 +11,5 @@
 9,Toast的自定义和ToastUtil工具类
 10,项目经常用的工具类的添加（SPUtil,ViewTool,LogUtil,NetWorkUtil等）
 11，屏幕适配（google的AutoLayout实现）
+
+12,app优化（启动优化，）

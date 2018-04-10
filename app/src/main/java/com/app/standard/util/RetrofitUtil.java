@@ -1,10 +1,11 @@
 package com.app.standard.util;
 
 
+import com.app.standard.modle.http.encrypt.DecodeConverterFactory;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtil {
 
@@ -24,7 +25,8 @@ public class RetrofitUtil {
                 .baseUrl(url)
                 .client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(DecodeConverterFactory.create(GSonUtil.defaultGSon()))//如果后台返回的数据是加密了
                 .build();
     }
 }

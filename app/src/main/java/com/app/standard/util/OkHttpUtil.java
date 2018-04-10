@@ -30,6 +30,7 @@ public class OkHttpUtil {
     //获取OkHttpClient
     public static OkHttpClient getOkHttpClient(OkHttpClient.Builder builder) {
         if (Constant.DEBUG) {//当前属于测试
+            // 拦截okHttp的日志，如果开启了会导致上传回调被调用两次
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
             builder.addInterceptor(loggingInterceptor);

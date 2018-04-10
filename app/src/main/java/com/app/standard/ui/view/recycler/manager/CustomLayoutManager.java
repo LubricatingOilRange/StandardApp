@@ -95,6 +95,11 @@ public class CustomLayoutManager extends RecyclerView.LayoutManager {
     //对子View进行排版
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+        int itemCount = getItemCount();
+        if (itemCount == 0) {
+            removeAndRecycleAllViews(recycler);
+            return;
+        }
 
         detachAndScrapAttachedViews(recycler);
 

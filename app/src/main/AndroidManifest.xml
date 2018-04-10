@@ -35,8 +35,7 @@
 
         <!--======================================Activity=========================-->
         <!--引导页面-->
-        <activity android:name=".ui.activity.WelcomeActivity"
-            android:theme="@style/welcomeTheme">
+        <activity android:name=".ui.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

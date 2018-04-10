@@ -25,6 +25,9 @@
     <dimen name="px_46">46px</dimen>
     <dimen name="px_48">48px</dimen>
     <dimen name="px_50">50px</dimen>
+    <dimen name="px_60">60px</dimen>
+    <dimen name="px_80">80px</dimen>
+    <dimen name="px_100">100px</dimen>
 
     <!--针对文字大小设置-->
     <dimen name="sp_20">@dimen/px_20</dimen>
