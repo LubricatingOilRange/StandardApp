@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CustomView/CustomView.iml" filepath="$PROJECT_DIR$/CustomView/CustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/NetWork/NetWork.iml" filepath="$PROJECT_DIR$/NetWork/NetWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/OptimizeLauncher/OptimizeLauncher.iml" filepath="$PROJECT_DIR$/OptimizeLauncher/OptimizeLauncher.iml" />
       <module fileurl="file://$PROJECT_DIR$/RecyclerView/RecyclerView.iml" filepath="$PROJECT_DIR$/RecyclerView/RecyclerView.iml" />

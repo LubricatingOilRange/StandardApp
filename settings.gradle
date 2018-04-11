@@ -1,1 +1,1 @@
-include ':app', ':OptimizeLauncher', ':RecyclerView', ':NetWork', ':UtilsAndBase'
+include ':app', ':OptimizeLauncher', ':RecyclerView', ':NetWork', ':UtilsAndBase', ':CustomView'
