@@ -4,18 +4,15 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.v4.content.ContextCompat;
+import android.support.annotation.UiThread;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.custom.view.R;
 
 public class MySeekBar extends View implements ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener {
     /**
@@ -88,12 +85,21 @@ public class MySeekBar extends View implements ValueAnimator.AnimatorUpdateListe
         init(context, attrs);
     }
 
+    /**
+     * Returns the model object that handles single selections.
+     *
+     * @param context the new MenuBarUI L&F object
+     * @return the <code>SingleSelectionModel</code> property
+     * @see MySeekBar
+     * @see MySeekBar#init
+     * @see MySeekBar#onMeasure
+     */
     private void init(Context context, AttributeSet attrs) {
         //获取自定义属性
         perValue = 10;
         minValue = 80;
         pointCount = 20;
-        backLineColor =  Color.LTGRAY;
+        backLineColor = Color.LTGRAY;
         indicatorLineColor = Color.GREEN;
         indicatorColor = Color.GRAY;
         //初始化SeekBar内部坐标对象
@@ -177,6 +183,7 @@ public class MySeekBar extends View implements ValueAnimator.AnimatorUpdateListe
         }
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //如果当前正在执行动画 则忽略用户点击
@@ -193,6 +200,7 @@ public class MySeekBar extends View implements ValueAnimator.AnimatorUpdateListe
             case MotionEvent.ACTION_MOVE:
                 //在命中的情况下，滑动指示器会在有限范围内滑动
                 move(x);
+                getParent().requestDisallowInterceptTouchEvent(false);
                 break;
             case MotionEvent.ACTION_UP:
                 //当Up时，检查是否需要开启属性动画
@@ -381,24 +389,24 @@ public class MySeekBar extends View implements ValueAnimator.AnimatorUpdateListe
          *
          * @return Rect
          */
-        public Rect getRect() {
+         Rect getRect() {
             mRect.set(curX - mR, curY - mR, curX + mR, curY + mR);
             return mRect;
         }
 
-        public boolean isTouch() {
+         boolean isTouch() {
             return isTouch;
         }
 
-        public void setIsTouch(boolean isTouch) {
+         void setIsTouch(boolean isTouch) {
             this.isTouch = isTouch;
         }
 
-        public Point getPoint() {
+         Point getPoint() {
             return mPoint;
         }
 
-        public void setPoint(Point point) {
+         void setPoint(Point point) {
             mPoint = point;
             curX = point.getX();
             curY = point.getY();

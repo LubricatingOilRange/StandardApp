@@ -1,19 +1,19 @@
 package com.app.standard.ui.activity.login;
 
-import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.app.standard.R;
 import com.app.standard.base.activity.dagger2.BaseDaggerActivity;
-import com.app.standard.modle.rxjava.RxBus;
-import com.app.standard.ui.activity.main.MainActivity;
+import com.app.standard.component.annotation.Fruit;
+import com.app.standard.component.annotation.FruitInject;
+import com.app.standard.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.functions.Consumer;
 
 public class LoginActivity extends BaseDaggerActivity {
+
+    private Fruit fruit;
 
     @BindView(R.id.tv_accept_message)
     TextView tv_accept_message;
@@ -25,10 +25,12 @@ public class LoginActivity extends BaseDaggerActivity {
 
     @OnClick(R.id.tv_send)
     void onClick(TextView textView) {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-
+//        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//        startActivity(intent);
+//        finish();
+//        fruit = new Fruit();
+//        FruitInject.inject(fruit);
+//        ToastUtil.showShort(LoginActivity.this,fruit.toString());
     }
 
     @Override
@@ -38,5 +40,6 @@ public class LoginActivity extends BaseDaggerActivity {
 
     @Override
     protected void onInitPageAndData() {
+
     }
 }
