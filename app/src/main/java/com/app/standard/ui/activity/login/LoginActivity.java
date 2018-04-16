@@ -1,11 +1,13 @@
 package com.app.standard.ui.activity.login;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.app.standard.R;
 import com.app.standard.base.activity.dagger2.BaseDaggerActivity;
 import com.app.standard.component.annotation.Fruit;
 import com.app.standard.component.annotation.FruitInject;
+import com.app.standard.ui.activity.main.MainActivity;
 import com.app.standard.util.ToastUtil;
 
 import butterknife.BindView;
@@ -25,9 +27,9 @@ public class LoginActivity extends BaseDaggerActivity {
 
     @OnClick(R.id.tv_send)
     void onClick(TextView textView) {
-//        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//        startActivity(intent);
-//        finish();
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
 //        fruit = new Fruit();
 //        FruitInject.inject(fruit);
 //        ToastUtil.showShort(LoginActivity.this,fruit.toString());

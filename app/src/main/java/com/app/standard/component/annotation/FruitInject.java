@@ -25,8 +25,8 @@ public class FruitInject {
                     FruitName fruitName = field.getAnnotation(FruitName.class);
                     fruit.setName(fruitName.name());
                 } else if (field.isAnnotationPresent(FruitColor.class)) {
-                    FruitColor fruitColor = field.getAnnotation(FruitColor.class);
-                    FruitColor.Color color = fruitColor.fruitColor();
+//                    FruitColor fruitColor = field.getAnnotation(FruitColor.class);
+//                    FruitColor.Color color = fruitColor.fruitColor();
                     fruit.setColor("颜色");
                 } else if (field.isAnnotationPresent(FruitProvider.class)){
                     FruitProvider fruitProvider = field.getAnnotation(FruitProvider.class);

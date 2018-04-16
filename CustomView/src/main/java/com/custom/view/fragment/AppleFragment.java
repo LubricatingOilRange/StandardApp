@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.custom.view.R;
 import com.custom.view.util.Logger;
+import com.custom.view.view.ScrollerView;
 
 public class AppleFragment extends Fragment {
 
@@ -47,7 +49,14 @@ public class AppleFragment extends Fragment {
     }
 
     private void initView(View view) {
-
+       final ScrollerView scrollerView =  view.findViewById(R.id.scrollView);
+       final LinearLayout ll_layout =  view.findViewById(R.id.ll_layout);
+//        ll_layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                scrollerView.startScroll();
+//            }
+//        });
     }
 
     @Override

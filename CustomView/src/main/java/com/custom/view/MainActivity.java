@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // mTabLayout = findViewById(R.id.tabLayout);
-       // mViewPager = findViewById(R.id.viewPager);
+        mTabLayout = findViewById(R.id.tabLayout);
+        mViewPager = findViewById(R.id.viewPager);
 
-        //intView();
+        intView();
     }
 
     private void intView() {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mFragList.add(new FragmentTitleBean(new PearFragment(), "香梨"));
 
       final  ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), mFragList);
-      //  mViewPager.setAdapter(adapter);
-       // mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setAdapter(adapter);
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 }

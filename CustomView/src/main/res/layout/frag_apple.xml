@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.custom.view.view.ScrollerView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#17a792"
+    android:id="@+id/scrollView"
+    android:gravity="center">
 
-    <com.custom.view.view.SwitchButton
+    <LinearLayout
+        android:id="@+id/ll_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="11111111111111"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:text="你是不是沙俄"/>
+    </LinearLayout>
+
+</com.custom.view.view.ScrollerView>
